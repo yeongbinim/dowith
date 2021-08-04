@@ -24,7 +24,7 @@
     "deploy": "gh-pages -d build",
     "predeploy": "yarn run build"
   },
-  "homepage": "https://yeongbinim.github.io/dowith/",
+  "homepage": "https://flamboyant-mclean-835edf.netlify.app",
   "eslintConfig": {
     "extends": [
       "react-app",
