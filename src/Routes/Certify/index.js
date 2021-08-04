@@ -11,7 +11,7 @@ const Video = styled.video`
 `;
 
 const Camera = () =>{
-	let myRef = React.createRef();
+	let myRef = useRef();
 
 	const constraints = {
 		audio: {
