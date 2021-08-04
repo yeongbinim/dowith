@@ -41,8 +41,7 @@ const Camera = () =>{
 		  console.error('navigator.getUserMedia error:', e);
 		}
 	};
-	init(constraints);
-	// useEffect(() => {init(constraints); return ()=>}, []);
+	useEffect(() => init(constraints), []);
 
 	return (
 		<Video ref={myRef} playsInline={true} autoPlay={true} muted={true}></Video>
