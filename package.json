@@ -24,7 +24,7 @@
     "deploy": "gh-pages -d build",
     "predeploy": "yarn run build"
   },
-  "homepage": "https://yeongbinim.github.io/dowith",
+  "homepage": "https://yeongbinim.github.io/dowith/",
   "eslintConfig": {
     "extends": [
       "react-app",
