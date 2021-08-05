@@ -1,13 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import ImageContainer from "Components/Image";
+import BannerContainer from "Components/Banner";
 
 const Container = styled.div`
-	padding:1rem;
+  padding: 1rem;
 `;
 
 const Presenter = () => (
-	<Container>
-	</Container>
+  <Container>
+    <ImageContainer />
+    <BannerContainer />
+  </Container>
 );
 
 // Presenter.propTypes = {
