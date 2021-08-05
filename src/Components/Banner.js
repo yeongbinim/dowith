@@ -14,10 +14,9 @@ const TextContainer = styled.div`
   left: 20px;
   position: relative;
 
-  font-size: 12px;
-  font-family: Pretendard;
-  font-weight: normal;
-  line-height: 20px;
+  font-size: 1.2rem;
+  line-height: 1.4em;
+  font-weight: 400;
   color: #000;
 `;
 

@@ -2,11 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import Image from "Components/Image";
 import Banner from "Components/Banner";
+const H2 = styled.h2`
+  font-size:1.8rem;
+  line-height:1.3em;
+  font-weight:400;
+`;
+const H3 = styled.h2`
+  font-size:1.5rem;
+  font-weight:700;
+`;
+const Strong = styled.span`
+  font-weight:700;
+`;
 const Background = styled.div`
   background-color:white;
   width:100%;
   position:absolute;
-  height:10rem;
+  height:20rem;
   left:0;
   top:0;
   z-index:-1;
@@ -25,6 +37,7 @@ const SectionDiv = styled.div`
   padding:1rem;
   display:flex;
   flex-direction:column;
+  font-size:1.2rem;
   & > span:not(:last-child) {
     margin-bottom:1rem;
   }
@@ -43,9 +56,9 @@ const Presenter = () => (
   <>
   <Background/>
   <Container>
-    <h2>
-      안녕하세요, 민지님<br/>오늘도 힘차게 달려볼까요?
-    </h2>
+    <H2>
+      안녕하세요, <Strong>민지님</Strong><br/>오늘도 힘차게 달려볼까요?
+    </H2>
     <Section>
       <SectionDiv style={{borderBottom:"1px solid #eeeeee"}}>
         <span>민지님은 오늘도 달리는 중</span>
@@ -57,7 +70,7 @@ const Presenter = () => (
       </SectionDiv>
     </Section>
     <Banner />
-    <h3>인기있는 챌린지</h3>
+    <H3>인기있는 챌린지</H3>
     <Ul>
       <li><Image/></li>
       <li><Image/></li>
@@ -66,7 +79,7 @@ const Presenter = () => (
       <li><Image/></li>
       <li><Image/></li>
     </Ul>
-    <h3>완료된 챌린지</h3>
+    <H3>완료된 챌린지</H3>
     <Ul>
       <li><Image/></li>
       <li><Image/></li>
