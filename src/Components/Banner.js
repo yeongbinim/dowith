@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const BannerContainer = styled.div`
-  width: 320px;
-  height: 95px;
+  width: 100%;
+  height: 9rem;
   background-color: #3c68fa;
   border-radius: 8px;
+  margin:1rem auto;
 `;
 
 const TextContainer = styled.div`

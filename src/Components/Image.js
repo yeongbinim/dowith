@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const ImageContainer = styled.div`
-  width: 197px;
-  height: 155px;
+  width: 30rem;
+  height: 18rem;
   background-color: #efefef;
 `;
 
