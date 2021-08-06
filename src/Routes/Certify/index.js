@@ -8,6 +8,7 @@ const Video = styled.video`
 	left: 50%;
 	width: vmax;
 	max-height: 100vh;
+	z-index:-1;
 `;
 
 const Camera = () =>{

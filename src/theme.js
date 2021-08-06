@@ -3,10 +3,10 @@ const calcRem = (size) => `${size / 16}rem`;
 const fontSizes = {
 	small: calcRem(14),
 	base: calcRem(16),
-	lg: calcRem(18),
-	xl: calcRem(20),
-	xxl: calcRem(22),
-	xxxl: calcRem(24),
+	normal: calcRem(18),
+	h3: calcRem(24),
+	h2: calcRem(36),
+	h1: calcRem(42),
 	titleSize: calcRem(50),
 };
 
@@ -48,7 +48,7 @@ const deviceSizes = {
 };
 
 const colors = {
-	main: "#3498db",
+	main: "#3d69fa",
 	black: "#000000",
 	white: "#FFFFFF",
 	gray_1: "#222222",

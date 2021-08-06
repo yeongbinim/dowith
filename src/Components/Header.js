@@ -1,44 +1,38 @@
 import React from "react";
-import { Link ,withRouter } from "react-router-dom";
-import styled from "styled-components";
+// import styled from "styled-components";
+import Sidebar from "react-sidebar";
+import Nav from "Components/Nav";
+import MenuButton from "Components/MenuButton";
 
-const Header = styled.header`
-	color: white;
-	background-color: ${({theme:{colors}}) => colors.black};
-	position : sticky;
-	z-index: 10;
-	box-shadow: 0px 1px 5px 2px rgba(0, 0,0 ,0.8);
-	top: 0;
-`;
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebarOpen: false
+    };
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+  }
 
-const UL = styled.ul`
-	display : flex;
-	list-style: none;
-`;
+  onSetSidebarOpen(open) {
+    this.setState({ sidebarOpen: open });
+  }
+  onSetSidebarClose(open) {
+    this.setState({ sidebarOpen: open });
+  }
 
-const List = styled.li`
-	border-bottom : 5px solid ${props=> props.current? props.theme.colors.main : "transparent"};
-	transition : border-bottom .5s ease-in-out;
-`;
+  render() {
+    return (
+		<div>
+			<Sidebar
+				sidebar={<Nav onClick={()=>this.onSetSidebarOpen(false)}/>}
+				open={this.state.sidebarOpen}
+				onSetOpen={this.onSetSidebarOpen}
+				styles={{ sidebar: { background: "white" } }}
+			><MenuButton onClick={()=>this.onSetSidebarOpen(true)}/></Sidebar>
+			<div style={{width:"100%",height:"5rem"}}></div>
+	  	</div>
+    );
+  }
+}
 
-const SLink = styled(Link)`
-	font-size:${props=>props.theme.fontSizes.base};
-	text-decoration: none;
-	display: flex;
-	justify-content:center;
-	padding: 1em 0;
-	width: 7em;
-`;
-
-export default withRouter(({location:{pathname}}) => (
-	<Header>
-		<UL>
-			<List current={pathname === "/"}>
-				<SLink to="/">Home</SLink>
-			</List>
-			<List current={pathname === "/certify"}>
-				<SLink to="/certify">인증화면</SLink>
-			</List>
-		</UL>
-	</Header>
-));
+export default Header;

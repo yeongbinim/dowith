@@ -11,6 +11,7 @@ const globalStyles = createGlobalStyle`
 		box-sizing:border-box;
 	}
 	body{
+		overflow-x:hidden;
 		background-color:#f3f7fa;
 		font-family:--apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	}

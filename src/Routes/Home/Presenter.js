@@ -2,15 +2,28 @@ import React from "react";
 import styled from "styled-components";
 import Image from "Components/Image";
 import Banner from "Components/Banner";
+import ProgressBar from 'Components/ProgressBar';
+
 const H2 = styled.h2`
-  font-size:1.8rem;
+  font-size: ${({theme:{fontSizes}})=>fontSizes.h2};
   line-height:1.3em;
   font-weight:400;
+  color : ${props=>(props.isColor? props.theme.colors.main : 'black')};
 `;
-const H3 = styled.h2`
-  font-size:1.5rem;
+
+const H3 = styled.h3`
+  font-size: ${({theme:{fontSizes}})=>fontSizes.h3};
   font-weight:700;
+  color : ${props=>(props.isColor? props.theme.colors.main : 'black')};
 `;
+
+const H5 = styled.h5`
+  font-size: ${({theme:{fontSizes}})=>fontSizes.h5};
+  font-weight:500;
+  color : ${props=>(props.isColor? props.theme.colors.main : 'black')};
+  margin-left: 1em;
+`;
+
 const Strong = styled.span`
   font-weight:700;
 `;
@@ -24,7 +37,7 @@ const Background = styled.div`
   z-index:-1;
 `;
 const Container = styled.div`
-  padding: 1rem;
+  padding: 2rem;
 `;
 const Section = styled.section`
   border-radius: 8px;
@@ -34,12 +47,14 @@ const Section = styled.section`
   margin: 1rem 0;
 `;
 const SectionDiv = styled.div`
-  padding:1rem;
+  padding:2em;
   display:flex;
   flex-direction:column;
   font-size:1.2rem;
-  & > span:not(:last-child) {
-    margin-bottom:1rem;
+  & > p:last-child{
+    align-self: flex-end;
+    margin-right: 1em;
+    font-size:${({theme:{fontSizes}})=>fontSizes.normal};
   }
 `;
 
@@ -61,12 +76,14 @@ const Presenter = () => (
     </H2>
     <Section>
       <SectionDiv style={{borderBottom:"1px solid #eeeeee"}}>
-        <span>민지님은 오늘도 달리는 중</span>
-        <span>플라스틱 컵 대신 텀블러 사용하기</span>
-        <span>스터디 카페 출석하기</span>
+        <H3>민지님은 오늘도 달리는 중</H3>
+        <span><br/><br/>플라스틱 컵 대신 텀블러 사용하기</span>
+        <span><br/><br/>스터디 카페 출석하기</span>
       </SectionDiv>
       <SectionDiv>
-        <div>progressbar</div>
+        <H5 isColor={true}>오늘의 챌린지 완료율 (%)</H5>
+        <ProgressBar width={ 70 } animationSpeed={10}/>
+        <p>목표달성까지 얼마 남지 않았어요!</p>
       </SectionDiv>
     </Section>
     <Banner />
