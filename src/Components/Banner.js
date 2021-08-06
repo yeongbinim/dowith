@@ -4,9 +4,9 @@ import styled from "styled-components";
 const BannerContainer = styled.div`
   width: 100%;
   height: 9rem;
-  background-color: #3c68fa;
+  background-color: ${(props) => (props.reverse ? "#3c68fa" : "#f7f3fa")};
   border-radius: 8px;
-  margin:1rem auto;
+  margin: 1rem auto;
 `;
 
 const TextContainer = styled.div`
@@ -17,7 +17,7 @@ const TextContainer = styled.div`
   font-size: 1.2rem;
   line-height: 1.4em;
   font-weight: 400;
-  color: #000;
+  color: ${(props) => (props.reverse ? "#fff" : "#3c68fa")};
 `;
 
 const Text = styled.div`
