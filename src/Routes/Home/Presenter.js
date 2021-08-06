@@ -86,7 +86,7 @@ const Presenter = () => (
         <p>목표달성까지 얼마 남지 않았어요!</p>
       </SectionDiv>
     </Section>
-    <Banner />
+    <Banner/>
     <H3>인기있는 챌린지</H3>
     <Ul>
       <li><Image/></li>

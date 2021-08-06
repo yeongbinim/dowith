@@ -1,9 +1,13 @@
 import React from "react";
-import {HashRouter as Router, Route, Redirect, Switch} from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from "react-router-dom";
 import Home from "Routes/Home";
 import Certify from "Routes/Certify";
-import Signin from "Routes/Signin";
-import Test from "Routes/Test";
+import Challenge from "Routes/Challenge";
 import Header from "Components/Header";
 
 
@@ -13,11 +17,8 @@ const RouterC = () => (
 		<Switch>
 			<Route path="/" exact={true} component={Home}/>
 			<Route path="/certify" exact={true} component={Certify}/>
-			<Route path="/signin" exact={true} component={Signin}/>
-			<Route path="/test" exact={true} component={Test}/>
+      <Route path="/challenge" exact={true} component={Challenge} />
 			<Redirect from="*" to="/"/>
 		</Switch>
-	</Router>
-);
-
+	</Router>);
 export default RouterC;
