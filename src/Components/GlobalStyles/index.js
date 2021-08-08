@@ -6,6 +6,8 @@ const globalStyles = createGlobalStyle`
 	a{
 		text-decoration:none;
 		color:inherit;
+		position: relative;
+		z-index:1;
 	}
 	*{
 		box-sizing:border-box;

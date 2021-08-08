@@ -17,6 +17,7 @@ import CreateChallenge from "Routes/Main/CreateChallenge";
 import Header from "Components/Navigation/Header";
 import Detail from "Routes/Challenge/Detail";
 import DetailRank from "Routes/Challenge/Rank";
+import Mypage from "Routes/Mypage";
 
 const RouterC = () => (
 	<Router>
@@ -24,6 +25,7 @@ const RouterC = () => (
 		<Switch>
 			<Route path="/" exact={true} component={Home} />
 			<Route path="/certify" component={Certify} />
+			<Route path="/mypage" component={Mypage} />
 			<Route path="/introduce" component={Introduce} />
 			<Route path="/createchallenge" component={CreateChallenge} />
 			<Route path="/challenge" exact={true} component={Home2} />

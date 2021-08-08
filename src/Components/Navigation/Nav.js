@@ -37,8 +37,14 @@ export default withRouter(({location:{pathname}, onClick}) => (
 			<List current={pathname === "/challenge"}>
 				<SLink to="/challenge">챌린지전체보기</SLink>
 			</List>
+			<List current={pathname === "/mypage"}>
+				<SLink to="/mypage">마이페이지</SLink>
+			</List>
 			<List current={pathname === "/signin"}>
 				<SLink to="/signin">로그인</SLink>
+			</List>
+			<List current={pathname === "/signup"}>
+				<SLink to="/signup">회원가입</SLink>
 			</List>
 		</UL>
 	</Container>

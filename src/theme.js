@@ -49,6 +49,7 @@ const deviceSizes = {
 
 const colors = {
 	main: "#3d69fa",
+	background : "#f0f4f8",
 	black: "#000000",
 	white: "#FFFFFF",
 	gray_1: "#222222",

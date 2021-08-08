@@ -27,8 +27,9 @@ const Image = styled.div`
   height: 18rem;
 `;
 
-const ImgBox = ({imageUrl,challengeTitle="기본 타이틀",peopleNum=0, id=0}) => {
-  return (<ImageBox to={`/challenge/${id}`}>
+const ImgBox = ({imageUrl, challengeTitle="기본 타이틀",peopleNum=0, id=0}) => {
+  return (
+  <ImageBox to={`/challenge/${id}`}>
     <Image bgUrl={imageUrl? `경로주소${imageUrl}`: require("assets/default-challenge.jpg").default}/>
     <Title>{challengeTitle}</Title>
     <Body>총 {peopleNum}명이 참여 중</Body>

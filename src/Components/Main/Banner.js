@@ -34,9 +34,11 @@ const Textbox = styled.div`
 `;
 
 const SVG = styled.img`
-  position:relative;
+  position:absolute;
+  right: 5%;
   width:10rem;
-  top:0.2rem;
+  top:53%;
+  transform:translate(0,-50%);
 `;
 
 // const TextBold = styled.span`

@@ -5,12 +5,15 @@ const CircleContainer = styled.div`
 	background-image: url(${props => props.bgUrl});
   	background-position: center center;
   	background-size: cover;
-  	width: 5rem;
-  	height: 5rem;
+  	width: ${props=>props.size};
+  	height: ${props=>props.size};
+	border-radius: 100%;
+	position: relative;
+	z-index:1;
 `;
 
-const Circle = ({imageUrl="assets/default-human.png"}) => {
-  return <CircleContainer bgUrl={imageUrl}/>;
+const Circle = ({imageUrl, size="5rem"}) => {
+  return <CircleContainer size={size} bgUrl={imageUrl? `경로주소${imageUrl}`: require("assets/default-human.png").default}/>
 };
 
 export default Circle;

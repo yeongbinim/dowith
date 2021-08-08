@@ -4,8 +4,10 @@ import Image from "Components/Main/ImgBox";
 import Banner from "Components/Main/Banner";
 import ProgressBar from 'Components/Main/ProgressBar';
 import { Link } from "react-router-dom";
+import ProfileCircle from "Components/ProfileCircle";
 
 const H2 = styled.h2`
+  position:relative;
   font-size: ${({theme:{fontSizes}})=>fontSizes.h2};
   line-height:1.3em;
   font-weight:400;
@@ -33,7 +35,7 @@ const H5 = styled.h5`
 
 
 const Background = styled.div`
-  background-color:#f0f4f8;
+  background-color: ${({theme:{colors}})=> colors.background};
   width:100%;
   position:absolute;
   height:calc(100% - 20rem);
@@ -121,13 +123,18 @@ const Dummy = styled.div`
   }
 `;
 
-
+const Profile = styled(Link)`
+  position:absolute;
+  right:1rem;
+  bottom:0.5rem;
+`;
 
 const Presenter = ({username, }) => (
   <>
   <Background/>
   <Container>
     <H2>
+      <Profile to="/mypage"><ProfileCircle/></Profile>
       안녕하세요, <strong>{username ? "영빈" : "민지"}님</strong><br/>오늘도 힘차게 달려볼까요?
     </H2>
     <Section1>

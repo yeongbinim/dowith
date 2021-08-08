@@ -21,7 +21,7 @@ class Header extends React.Component {
 
   render() {
     return (
-		<div>
+		<>
 			<Sidebar
 				sidebar={<Nav onClick={()=>this.onSetSidebarOpen(false)}/>}
 				open={this.state.sidebarOpen}
@@ -29,7 +29,7 @@ class Header extends React.Component {
 				styles={{ sidebar: { background: "white" } }}
 			><MenuButton onClick={()=>this.onSetSidebarOpen(true)}/></Sidebar>
 			<div style={{width:"100%",height:"6rem"}}></div>
-	  	</div>
+	  </>
     );
   }
 }
