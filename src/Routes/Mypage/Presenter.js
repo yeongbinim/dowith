@@ -38,20 +38,24 @@ const Section1 = styled.section`
 
 const Load = keyframes`
   0% {
-    transform:scaleX(-80%);
+	bottom:0rem;
+    transform:rotateX(360deg);
   }
   33%{
-	transform:scaleX(80%) translate(0,-20%);
+	transform:rotateX(0deg);
   }
   66%{
-	transform:scaleX(-80%) translate(0,0);
+	bottom:2rem;
+	transform:rotateX(360deg);
   }
   100% {
-    transform:scaleX(80%);
+	bottom:0rem;
+    transform:rotateX(0deg);
   }
 `;
 
 const CoinImg = styled(Coin)`
+	position:relative;
 	width:7rem;
 	animation: ${Load} 1s 1 linear alternate both;
 `;
@@ -99,7 +103,7 @@ const ButtonBox = styled.div`
 
 const Presenter = ({coin=0, name="김민지", complete=0,ongoing=0,tabs}) => {
 	return (
-	<>
+	<div style={{overflowX:"hidden"}}>
 		<Section1>
 			<Back/>
 			<ProfileCircle size="14rem"/>
@@ -119,7 +123,7 @@ const Presenter = ({coin=0, name="김민지", complete=0,ongoing=0,tabs}) => {
 			</ButtonBox>
 			{tabs.currentItem}
 		</Section2>
-	</>
+	</div>
 	);
 };
 
