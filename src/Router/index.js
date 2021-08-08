@@ -8,7 +8,8 @@ import {
 import Home from "Routes/Home";
 import Certify from "Routes/Certify";
 import Challenge from "Routes/Challenge";
-
+import Signin from "Routes/Signin";
+import Signup from "Routes/Signup";
 import Header from "Components/Header";
 
 const RouterC = () => (
@@ -18,6 +19,8 @@ const RouterC = () => (
       <Route path="/" exact={true} component={Home} />
       <Route path="/certify" exact={true} component={Certify} />
       <Route path="/challenge" exact={true} component={Challenge} />
+      <Route path="/signin" exact={true} component={Signin} />
+      <Route path="/signup" exact={true} component={Signup} />
       <Redirect from="*" to="/" />
     </Switch>
   </Router>
