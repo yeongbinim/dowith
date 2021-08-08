@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const ImageBox = styled.div`
+const ImageBox = styled(Link)`
   display:flex;
   flex-direction:column;
   & > span {
@@ -26,8 +27,8 @@ const Image = styled.div`
   height: 18rem;
 `;
 
-const ImgBox = ({imageUrl,challengeTitle="기본 타이틀",peopleNum=0}) => {
-  return (<ImageBox>
+const ImgBox = ({imageUrl,challengeTitle="기본 타이틀",peopleNum=0, id=0}) => {
+  return (<ImageBox to={`/challenge/${id}`}>
     <Image bgUrl={imageUrl? `경로주소${imageUrl}`: require("assets/default-challenge.jpg").default}/>
     <Title>{challengeTitle}</Title>
     <Body>총 {peopleNum}명이 참여 중</Body>
