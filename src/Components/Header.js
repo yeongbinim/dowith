@@ -52,6 +52,9 @@ export default withRouter(({ location: { pathname } }) => (
       <List current={pathname === "/join1"}>
         <SLink to="/join1">프로필설정</SLink>
       </List>
+      <List current={pathname === "/join2"}>
+        <SLink to="/join2">가입완료</SLink>
+      </List>
     </UL>
   </Header>
 ));
