@@ -7,6 +7,7 @@ const Container = styled.div`
 
 const Presenter = () => (
 	<Container>
+		여기는 마이 페이지
 	</Container>
 );
 

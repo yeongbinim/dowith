@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "react-sidebar";
-import Nav from "Components/Nav";
-import MenuButton from "Components/MenuButton";
+import Nav from "Components/Navigation/Nav";
+import MenuButton from "Components/Navigation/MenuButton";
 
 class Header extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Header extends React.Component {
 				onSetOpen={this.onSetSidebarOpen}
 				styles={{ sidebar: { background: "white" } }}
 			><MenuButton onClick={()=>this.onSetSidebarOpen(true)}/></Sidebar>
-			<div style={{width:"100%",height:"5rem"}}></div>
+			<div style={{width:"100%",height:"6rem"}}></div>
 	  	</div>
     );
   }

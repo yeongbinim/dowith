@@ -19,10 +19,10 @@ const List = styled.li`
 `;
 
 const SLink = styled(Link)`
-	font-size:${props=>props.theme.fontSizes.h4};
+	font-size:${({theme:{fontSizes}})=>fontSizes.h3};
 	text-decoration: none;
 	display:block;
-	padding: 1em 1em;
+	padding: 2rem 2rem;
 `;
 
 export default withRouter(({location:{pathname}, onClick}) => (
@@ -35,8 +35,11 @@ export default withRouter(({location:{pathname}, onClick}) => (
 				<SLink to="/certify">인증화면</SLink>
 			</List>
 			<List current={pathname === "/challenge"}>
-        		<SLink to="/challenge">챌린지전체보기</SLink>
-      		</List>
+				<SLink to="/challenge">챌린지전체보기</SLink>
+			</List>
+			<List current={pathname === "/signin"}>
+				<SLink to="/signin">로그인</SLink>
+			</List>
 		</UL>
 	</Container>
 ));

@@ -3,8 +3,8 @@ const calcRem = (size) => `${size / 16}rem`;
 const fontSizes = {
 	small: calcRem(14),
 	base: calcRem(16),
-	normal: calcRem(18),
-	h3: calcRem(24),
+	normal: calcRem(21),
+	h3: calcRem(28),
 	h2: calcRem(36),
 	h1: calcRem(42),
 	titleSize: calcRem(50),

@@ -7,6 +7,7 @@ const Container = styled.div`
 
 const Presenter = () => (
 	<Container>
+		이곳은 챌린지 만드는 페이지
 	</Container>
 );
 
