@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 import Textarea from "Components/Textarea";
@@ -12,7 +13,7 @@ const H3 = styled.h2`
   margin-bottom: 3rem;
   border-bottom: 0.1rem solid #c2c2c2;
   text-align: center;
-  padding: 4rem 0 1.5rem;
+  padding: 2rem 0 1.5rem;
 `;
 
 const H2 = styled.h2`
@@ -33,7 +34,8 @@ const H4 = styled.h4`
   line-height: 2.8rem;
 `;
 
-const Link = styled.span`
+const TextLink = styled(Link)`
+  font-size: 1.2rem;
   border-bottom: 0.1rem solid #3c68fa;
   color: "#3c68fa";
 `;
@@ -65,14 +67,20 @@ const Presenter = () => (
       <br />
       <br />
       <H4>
-        먼저 <Link style={{ color: "#3c68fa" }}>로그인</Link>이 필요해요!
+        먼저{" "}
+        <TextLink to="/signin" style={{ color: "#3c68fa" }}>
+          로그인
+        </TextLink>
+        이 필요해요!
       </H4>
       <br />
       <Textarea />
       <br />
       <Textarea />
       <br />
-      <H4 style={{ color: "#3c68fa" }}>회원가입</H4>
+      <TextLink to="/signiup" style={{ color: "#3c68fa" }}>
+        회원가입
+      </TextLink>
       <br />
       <br />
       <br />

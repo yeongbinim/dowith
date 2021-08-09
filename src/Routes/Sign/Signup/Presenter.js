@@ -12,7 +12,7 @@ const H3 = styled.h2`
   margin-bottom: 3rem;
   border-bottom: 0.1rem solid #c2c2c2;
   text-align: center;
-  padding: 4rem 0 1.5rem;
+  padding: 2rem 0 1.5rem;
 `;
 
 const H2 = styled.h2`
