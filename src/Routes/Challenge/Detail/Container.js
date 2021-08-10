@@ -4,7 +4,7 @@ import React from "react";
 import Presenter from "./Presenter";
 import {detailPage} from "testData";
 
-const Container = () => {
+const Container = ({user}) => {
   // const [detail, setdetail] = useState(null);
   // const [detailMy, setdetailMy] = useState(null);
   // const [detailAll, setdetailAll] = useState(null);
@@ -41,7 +41,7 @@ const Container = () => {
 	// 	data_challenge={detail} data_myverify={detailMy} data_allverify={detailAll} loading={loading}
     // />
     <Presenter
-		data_challenge={detailPage.detail} data_myverify={detailPage.detailMy} data_allverify={detailPage.detailAll} loading={detailPage.loading}
+		data_challenge={detailPage.detail} data_myverify={detailPage.detailMy} data_allverify={detailPage.detailAll} loading={detailPage.loading} user={user}
     />
   );
 }

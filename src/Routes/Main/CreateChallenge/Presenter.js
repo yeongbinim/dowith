@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ChallengeButton from "Components/ChallengeButton";
 
 const Container = styled.div`
 	padding:1rem;
@@ -7,7 +8,7 @@ const Container = styled.div`
 
 const Presenter = () => (
 	<Container>
-		이곳은 챌린지 만드는 페이지
+		<ChallengeButton content="챌린지 개설하기" status={true} clickEvent={()=>{alert()}} />
 	</Container>
 );
 

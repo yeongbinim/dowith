@@ -2,7 +2,7 @@ import axios from "axios";
 
 const JWT_EXPIRY_TIME = 24 * 3600 * 1000; // 만료 시간 (24시간 밀리 초로 표현)
 
-const access = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46ZG93aXRoIiwic3ViIjoiMSIsImlhdCI6MTYyODYwMTE5OSwiZXhwIjoxNjI4NjA0Nzk5LCJhdWQiOlsidXJuOmRvd2l0aDp1c2VyIl0sInR5cGUiOiJhY2Nlc3MiLCJwcm92aWRlciI6ImFkbWluIiwibmlja25hbWUiOiIzIn0.50qz2h5CGF-CG7EjrRaR3gZ8uNwbzTuqwymBO7DstTE";
+const access = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46ZG93aXRoIiwic3ViIjoiMSIsImlhdCI6MTYyODYyNzYxNiwiZXhwIjoxNjI4NjMxMjE2LCJhdWQiOlsidXJuOmRvd2l0aDp1c2VyIl0sInR5cGUiOiJhY2Nlc3MiLCJwcm92aWRlciI6ImFkbWluIiwibmlja25hbWUiOiIzIn0.HKkqOovlIP3wWqSqwKnJ1hUPQ8gZtbmMWxd2LCbn6ak";
 axios.defaults.headers.common['Authorization'] = `Bearer ${access}`;
 
 axios.defaults.baseURL = "http://127.0.0.1:8000";

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import TitleImage from "Components/Challenge/TitleImage";
 import TitleSection from "Components/Challenge/TitleSection";
 import ChallengeNow from "Components/Challenge/ChallengeNow";
+import MyBoard from "Components/Challenge/MyBoard";
 
 const TitleContainer=styled.section`
   display:flex;
@@ -37,13 +38,30 @@ export const ChallengeContainer = ({data_challenge:{
 			<TitleSection total_challenge_period={total_challenge_period} life={life} fee={fee} challenge_status={challenge_status} title={title} description={description} captain_name={captain_name} participated_count={participated_count} create_date={create_date} end_date={end_date} start_date={start_date} />
 		</TitleContainer>
 		<ChallengeNow total_challenge_period = {total_challenge_period} id={id} total_accumulated_fine={total_accumulated_fine} elapsed_days={elapsed_days} days_left={days_left} challenge_status={challenge_status}/>
+		{/* {<ChallengeButton content="챌린지 개설하기" status={true} clickEvent={()=>{alert()}} />} */}
 	</>
 );
 
-export const MyverifyContainer = ({data_myverify}) => (
-	<>
-		<h2>챌린지 인증 보드</h2>
-	</>
+
+
+const H3 = styled.h3`
+  font-size: ${props => props.theme.fontSizes.h3};
+  font-weight:600;
+`;
+const MyContainer = styled.div`
+  padding:4rem 2rem;
+`;
+export const MyverifyContainer = ({data_myverify:{
+		verification_complete_count,
+		verification_failed_count,
+		total_challenge_ratio,
+		verifications,
+	},image_url
+}) => (
+	<MyContainer>
+		<H3>챌린지 인증 보드</H3>
+		<MyBoard image_url={image_url} verification_complete_count={verification_complete_count} verification_failed_count={verification_failed_count} total_challenge_ratio={total_challenge_ratio}/>
+	</MyContainer>
 );
 
 export const AllverifyContainer = (

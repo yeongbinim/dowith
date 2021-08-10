@@ -20,24 +20,39 @@ import DetailRank from "Routes/Challenge/Rank";
 import Mypage from "Routes/Mypage";
 import Kakao from "Routes/Kakao";
 
-const RouterC = () => (
+import {useState, useEffect} from "react";
+import { getApi } from "api";
+
+const RouterC = () => {
+ 	const [user, setUser] = useState(null);
+  	const mount = async() => {
+		try {
+			const {data}= await getApi.getUser();
+			setUser(data);
+		} catch {
+			console.log("Not login");
+		};
+	}
+	useEffect(() => mount(), []);
+
+	return(
 	<Router>
 		<Back/>
 		<Switch>
-			<Route path="/" exact={true} component={Home} />
-			<Route path="/certify" component={Certify} />
-			<Route path="/mypage" component={Mypage} />
-			<Route path="/introduce" component={Introduce} />
-			<Route path="/createchallenge" component={CreateChallenge} />
-			<Route path="/challenge" exact={true} component={Home2} />
-			<Route path="/signin" component={Signin} />
-			<Route path="/signup" component={Signup} />
-			<Route path="/kakao" component={Kakao} />
-			<Route path="/join1" component={Join1} />
-			<Route path="/join2" component={Join2} />
-			<Route path="/challenge/:id" exact={true} component={Detail} />
-			<Route path="/challenge/rank/:id" component={DetailRank} />
+			<Route path="/" exact={true} render={()=><Home user={user}/>} />
+			<Route path="/certify" render={()=><Certify user={user}/>} />
+			<Route path="/mypage" render={()=><Mypage user={user}/>} />
+			<Route path="/introduce" render={()=><Introduce/>} />
+			<Route path="/createchallenge" render={()=><CreateChallenge user={user}/>} />
+			<Route path="/challenge" exact={true} render={()=><Home2/>}/>
+			<Route path="/signin" render={()=><Signin user={user}/>} />
+			<Route path="/signup" render={()=><Signup user={user}/>} />
+			<Route path="/kakao" render={()=><Kakao user={user}/>} />
+			<Route path="/join1" render={()=><Join1 user={user}/>} />
+			<Route path="/join2" render={()=><Join2 user={user}/>} />
+			<Route path="/challenge/:id" exact={true} render={()=><Detail user={user}/>} />
+			<Route path="/challenge/rank/:id" render={()=><DetailRank user={user}/>} />
 			<Redirect from="*" to="/"/>
 		</Switch>
-	</Router>);
+	</Router>)};
 export default RouterC;
