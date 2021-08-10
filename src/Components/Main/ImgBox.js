@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { fadeIn } from "onLoad";
 
 const ImageBox = styled(Link)`
   display:flex;
@@ -8,6 +9,7 @@ const ImageBox = styled(Link)`
   & > span {
     margin-top: 0.7em;
   }
+  animation: ${fadeIn} 1s linear alternate both;
 `;
 
 const Title = styled.span`
@@ -27,12 +29,12 @@ const Image = styled.div`
   height: 18rem;
 `;
 
-const ImgBox = ({imageUrl, challengeTitle="기본 타이틀",peopleNum=0, id=0}) => {
+const ImgBox = ({thumbnail_url, title="기본 타이틀", participated_count, id}) => {
   return (
   <ImageBox to={`/challenge/${id}`}>
-    <Image bgUrl={imageUrl? `경로주소${imageUrl}`: require("assets/default-challenge.jpg").default}/>
-    <Title>{challengeTitle}</Title>
-    <Body>총 {peopleNum}명이 참여 중</Body>
+    <Image bgUrl={thumbnail_url!=="" && thumbnail_url!==null && thumbnail_url!== undefined? `${thumbnail_url}`: require("assets/default-challenge.jpg").default}/>
+    <Title>{title}</Title>
+    <Body>총 {participated_count}명이 참여 중</Body>
   </ImageBox>);
 };
 

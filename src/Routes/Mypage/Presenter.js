@@ -1,6 +1,7 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
 import ProfileCircle from "Components/ProfileCircle";
+import Helmet from "react-helmet";
 import { ReactComponent as Track } from 'assets/icon-track.svg';
 import { ReactComponent as Coin } from 'assets/icon-coin.svg';
 
@@ -16,7 +17,7 @@ const Back = styled(Track)`
 const Section1 = styled.section`
 	position:relative;
 	padding:7rem 2rem 0rem;
-	width:105%;
+	width:100%;
 	max-width:70rem;
 	margin: 0 auto 10rem;
 	border-radius: 10px;
@@ -101,31 +102,43 @@ const ButtonBox = styled.div`
 	display:flex;
 `;
 
-const Presenter = ({coin=0, name="김민지", complete=0,ongoing=0,tabs}) => {
-	return (
-	<div style={{overflowX:"hidden"}}>
-		<Section1>
-			<Back/>
-			<ProfileCircle size="14rem"/>
-			<h3><strong>{name}</strong>님</h3>
-			<CoinBox>
-				<CoinImg/>
-				<div>
-					<span>내 포인트</span>
-					<span>{coin}P</span>
-				</div>
-			</CoinBox>
-		</Section1>
-		<Section2>
-			<ButtonBox>
-				<Button active={tabs.currentIdx === 0} onClick={() => {tabs.changeItem(0);}}>챌린지 목록 ({ongoing})</Button>
-				<Button active={tabs.currentIdx === 1} onClick={() => {tabs.changeItem(1);}}>완료된 챌린지 ({complete})</Button>
-			</ButtonBox>
-			{tabs.currentItem}
-		</Section2>
-	</div>
-	);
-};
+const Presenter = ({
+	data_challenge = {
+		gathering_ongoing_count : 2,
+		finished_count : 5,
+	},
+	data_my = {
+		nickname : "홍여진",
+		image_url : "http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg",
+		point : 5000,
+	},loading = false, tabs}) =>
+		loading ? (<><Helmet><title>Loading | Dowith</title></Helmet>{/* <Loader /> */}</>) : 
+		(
+			<>
+			<Helmet><title>Mypage | Dowith</title></Helmet>
+			<div style={{overflowX:"hidden"}}>
+				<Section1>
+					<Back/>
+					<ProfileCircle image_url={data_my.image_url} size="14rem"/>
+					<h3><strong>{data_my.nickname}</strong>님</h3>
+					<CoinBox>
+						<CoinImg/>
+						<div>
+							<span>내 포인트</span>
+							<span>{data_my.point}P</span>
+						</div>
+					</CoinBox>
+				</Section1>
+				<Section2>
+					<ButtonBox>
+						<Button active={tabs.currentIdx === 0} onClick={() => {tabs.changeItem(0);}}>챌린지 목록 ({data_challenge.gathering_ongoing_count})</Button>
+						<Button active={tabs.currentIdx === 1} onClick={() => {tabs.changeItem(1);}}>완료된 챌린지 ({data_challenge.finished_count})</Button>
+					</ButtonBox>
+					{tabs.currentItem}
+				</Section2>
+			</div>
+			</>
+		);
 
 // Presenter.propTypes = {
 // };

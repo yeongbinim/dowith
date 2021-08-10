@@ -5,6 +5,8 @@ import Banner from "Components/Main/Banner";
 import ProgressBar from 'Components/Main/ProgressBar';
 import { Link } from "react-router-dom";
 import ProfileCircle from "Components/ProfileCircle";
+import Helmet from "react-helmet";
+import { fadeIn } from "onLoad";
 
 const H2 = styled.h2`
   position:relative;
@@ -49,6 +51,7 @@ const Container = styled.div`
 `;
 
 const Section1 = styled.section`
+  animation: ${fadeIn} 0.8s linear alternate both;
   margin: 3rem 0;
   display:flex;
   flex-direction: column;
@@ -76,6 +79,19 @@ const Article1 = styled.article`
   display:flex;
   flex-direction:column;
   font-size:1.2rem;
+  & > span{
+    display:flex;
+    justify-content:space-between;
+    margin-top: 2rem;
+    font-size: ${props=>props.theme.fontSizes.normal};
+    u{
+      text-decoration: none;
+      color:gray;
+    }
+    a{
+      color:${props=>props.theme.colors.main};
+    }
+  }
 `;
 const Article2 = styled.article`
   padding:1.5em;
@@ -129,24 +145,63 @@ const Profile = styled(Link)`
   bottom:0.5rem;
 `;
 
-const Presenter = ({username, }) => (
+
+const Presenter = ({
+  data_my = {
+    nickname:"홍여진",
+    image_url:"",
+  },
+  data_todaychallenge = {
+    ongoing:[
+      {id : 7, title : "챌린챌린지"},
+      {id : 5, title : "식사하기"},
+    ],
+    finished:[
+      {id : 1, title : "누워서 티비보기"},
+      {id : 2, title : "밥먹기"},
+      {id : 3, title : "게임하기"},
+    ],
+  },
+  data_allchallenge = {
+      gathering:[
+        {id : 7, title : "챌린챌린지", thumbnail_url : "", participated_count : 4},
+        {id : 2, title : "밥먹기" ,thumbnail_url : "", participated_count : 23},
+        {id : 3, title : "게임하기" ,thumbnail_url : "", participated_count : 41},
+        {id : 5, title : "식사하기" ,thumbnail_url : "", participated_count : 55},
+      ],
+      ongoing:[
+        {id : 7, title : "챌린챌린지" ,thumbnail_url : "", participated_count : 1},
+        {id : 2, title : "밥먹기" ,thumbnail_url : "", participated_count : 9},
+        {id : 3, title : "게임하기" ,thumbnail_url : "", participated_count : 14},
+        {id : 5, title : "식사하기" ,thumbnail_url : "", participated_count : 44},
+      ],
+      compelete:[
+        {id : 7, title : "챌린챌린지" ,thumbnail_url : "", participated_count : 6444},
+        {id : 2, title : "밥먹기" ,thumbnail_url : "", participated_count : 455},
+        {id : 3, title : "게임하기" ,thumbnail_url : "", participated_count : 1433},
+        {id : 5, title : "식사하기" ,thumbnail_url : "", participated_count : 341},
+      ]
+    },loading = false
+}) => 
+  loading ? (<><Helmet><title>Loading | Dowith</title></Helmet>{/* <Loader /> */}</>) : ( 
   <>
+  <Helmet><title>Home | Dowith</title></Helmet>
   <Background/>
   <Container>
     <H2>
       <Profile to="/mypage"><ProfileCircle/></Profile>
-      안녕하세요, <strong>{username ? "영빈" : "민지"}님</strong><br/>오늘도 힘차게 달려볼까요?
+      안녕하세요, <strong>{data_my.nickname}님</strong><br/>오늘도 힘차게 달려볼까요?
     </H2>
     <Section1>
       <ArticleBox>
         <Article1 style={{borderBottom:"1px solid #eeeeee"}}>
-          <H3>{username ? "영빈" : "민지"}님은 오늘도 달리는 중</H3>
-          <span><br/><br/>플라스틱 컵 대신 텀블러 사용하기</span>
-          <span><br/><br/>스터디 카페 출석하기</span>
+          <H3>{data_my.nickname}님은 오늘도 달리는 중</H3><br/>
+          {data_todaychallenge.ongoing.map(challenge => (<span key={challenge.id}><p>{challenge.title}</p><Link to={`/challenge/${challenge.id}`}>인증하러가기</Link></span>))}
+          {data_todaychallenge.finished.map(challenge => (<span key={challenge.id}><p>{challenge.title}</p><u>오늘의 인증 완료</u></span>))}
         </Article1>
         <Article2>
           <H5 isColor={true}>오늘의 챌린지 완료율 (%)</H5>
-          <ProgressBar width={ 70 } animationSpeed={10}/>
+          <ProgressBar width={ parseInt((data_todaychallenge.finished.length/(data_todaychallenge.finished.length + data_todaychallenge.ongoing.length))*100)} animationSpeed={10}/>
           <p>목표달성까지 얼마 남지 않았어요!</p>
         </Article2>
       </ArticleBox>
@@ -156,22 +211,12 @@ const Presenter = ({username, }) => (
       <ALink to="/challenge">전체보기</ALink>
       <H2>인기있는 챌린지</H2>
       <Ul>
-        <li><Image/></li>
-        <li><Image/></li>
-        <li><Image/></li>
-        <li><Image/></li>
-        <li><Image/></li>
-        <li><Image/></li>
+        {data_allchallenge.gathering.map(challenge => <li key={challenge.id}><Image title={challenge.title} thumbnail_url={challenge.thumbnail_url} participated_count={challenge.participated_count} id={challenge.id}/></li>)}
         <li><Dummy/></li>
       </Ul>
       <H2>두윗두윗 츄 ..완료된 챌린지<br/><span>함께여서 더욱 즐거웠던 두윗 챌린지들을 추억해보세요!</span></H2>
       <Ul>
-        <li><Image/></li>
-        <li><Image/></li>
-        <li><Image/></li>
-        <li><Image/></li>
-        <li><Image/></li>
-        <li><Image/></li>
+        {data_allchallenge.compelete.map(challenge => <li key={challenge.id}><Image title={challenge.title} thumbnail_url={challenge.thumbnail_url} participated_count={challenge.participated_count} id={challenge.id}/></li>)}
         <li><Dummy/></li>
       </Ul>
     </Section2>

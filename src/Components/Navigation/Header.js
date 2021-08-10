@@ -28,7 +28,6 @@ class Header extends React.Component {
 				onSetOpen={this.onSetSidebarOpen}
 				styles={{ sidebar: { background: "white" } }}
 			><MenuButton onClick={()=>this.onSetSidebarOpen(true)}/></Sidebar>
-			<div style={{width:"100%",height:"6rem"}}></div>
 	  </>
     );
   }

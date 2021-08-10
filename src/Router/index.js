@@ -14,14 +14,15 @@ import Signup from "Routes/Sign/Signup";
 import Join1 from "Routes/Sign/Join1";
 import Join2 from "Routes/Sign/Join2";
 import CreateChallenge from "Routes/Main/CreateChallenge";
-import Header from "Components/Navigation/Header";
+import Back from "Components/Navigation/Back";
 import Detail from "Routes/Challenge/Detail";
 import DetailRank from "Routes/Challenge/Rank";
 import Mypage from "Routes/Mypage";
+import Kakao from "Routes/Kakao";
 
 const RouterC = () => (
 	<Router>
-		<Header />
+		<Back/>
 		<Switch>
 			<Route path="/" exact={true} component={Home} />
 			<Route path="/certify" component={Certify} />
@@ -31,6 +32,7 @@ const RouterC = () => (
 			<Route path="/challenge" exact={true} component={Home2} />
 			<Route path="/signin" component={Signin} />
 			<Route path="/signup" component={Signup} />
+			<Route path="/kakao" component={Kakao} />
 			<Route path="/join1" component={Join1} />
 			<Route path="/join2" component={Join2} />
 			<Route path="/challenge/:id" exact={true} component={Detail} />

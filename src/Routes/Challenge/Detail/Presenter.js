@@ -1,39 +1,29 @@
 import React from "react";
-import styled from "styled-components";
 import Helmet from "react-helmet";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import {ChallengeContainer, MyverifyContainer, AllverifyContainer} from "./Components";
 
-const Container = styled.div`
-	position:relative;
-	padding:1rem;
-	z-index:1;
-`;
-const ALink = styled(Link)`
-	color:pink;
-`;
 
-const Presenter = ({result, loading, error}) =>
-loading ? (
-    <>
-      <Helmet>
-        <title>Loading | Dowith</title>
-      </Helmet>
-      {/* <Loader /> */}
-    </>
-  ) : (
-    <Container>
-      <Helmet>
-        <title>
-          {result.title ? result.title : "Challenge "}
-          | Dowith
-        </title>
-      </Helmet>
-      이곳은 챌린지 디테일 페이지
-	  <ALink to={`/challenge/rank/0`}>전체 랭킹 보기</ALink>
-    </Container>
+
+const Presenter = ({data_challenge, data_myverify, data_allverify, loading}) =>
+loading ? (<><Helmet><title>Loading | Dowith</title></Helmet>{/* <Loader /> */}</>) : 
+    (
+      <>
+        <Helmet><title>Challenge | Dowith</title></Helmet>
+        <ChallengeContainer data_challenge={data_challenge}/>
+        <MyverifyContainer data_myverify={data_myverify}/>
+        <AllverifyContainer data_allverify={data_allverify}/>
+      </>
   );
 
-// Presenter.propTypes = {
-// };
+Presenter.propTypes = {
+  data_challenge:PropTypes.object.isRequired,
+  data_myverify:PropTypes.object,
+  data_allverify:PropTypes.array,
+  loading: PropTypes.bool.isRequired,
+};
 
 export default Presenter;
+
+
+

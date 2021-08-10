@@ -43,8 +43,8 @@ export default withRouter(({location:{pathname}, onClick}) => (
 			<List current={pathname === "/signin"}>
 				<SLink to="/signin">로그인</SLink>
 			</List>
-			<List current={pathname === "/signup"}>
-				<SLink to="/signup">회원가입</SLink>
+			<List current={pathname === "/kakao"}>
+				<SLink to="/kakao">카카오</SLink>
 			</List>
 		</UL>
 	</Container>

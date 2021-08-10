@@ -1,9 +1,12 @@
 import React from "react";
 import Presenter from "./Presenter";
-// import { moviesApi } from "api";
+
+const error = "Cant't find anything.";
 
 const Container = () => {
-	return <Presenter/>
-  };
-  
+	return (
+		<Presenter result={{}} error={error} loading={false}/>
+	);
+}
+
 export default Container;

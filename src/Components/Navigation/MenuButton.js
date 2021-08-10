@@ -5,7 +5,7 @@ const MenuContainer = styled.button`
 	border:none;
 	cursor:pointer;
 	z-index:999;
-	background:none;
+	background-color:white;
 	padding:2rem;
 	& > div:not(:last-child){
 		width: 3rem;

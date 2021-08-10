@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import { ReactComponent as Block } from 'assets/icon-block.svg';
+import { ReactComponent as Fire } from 'assets/icon-fire.svg';
+import { fadeIn } from "onLoad";
 
 const BannerContainer = styled(Link)`
+  animation: ${fadeIn} 1s linear alternate both;
   display:block;
   width:100%;
   position:relative;
@@ -25,6 +29,8 @@ const TextContainer = styled.div`
 `;
 
 const Textbox = styled.div`
+  z-index:1;
+  position:relative;
   color: ${(props) => (props.reverse ? "black" : "#E4E9FB")};
   display: flex;
   flex-direction: column;
@@ -33,12 +39,24 @@ const Textbox = styled.div`
   }
 `;
 
-const SVG = styled.img`
-  position:absolute;
-  right: 5%;
-  width:10rem;
-  top:53%;
-  transform:translate(0,-50%);
+const SvgFire = styled(Fire)`
+    position:absolute;
+    z-index:0;
+    right: 5%;
+    width:10rem;
+    height:10rem;
+    top:50%;
+    transform:translate(0,-50%);
+`;
+
+const SvgBlock = styled(Block)`
+    position:absolute;
+    z-index:0;
+    right: 5%;
+    width:10rem;
+    height:10rem;
+    top:53%;
+    transform:translate(0,-50%);
 `;
 
 // const TextBold = styled.span`
@@ -56,7 +74,7 @@ const Banner = ({reverse, contents}) => {
           <span style={{fontSize:"1.4rem",fontWeight:"400"}}>{contents[2]}</span>
           <span style={{fontSize:"1.4rem",fontWeight:"400"}}>{contents[3]}</span>
         </Textbox>
-        <SVG src={reverse? require("assets/icon-block.svg").default : require("assets/icon-fire.svg").default } alt="img"/>
+        {reverse? <SvgBlock/> : <SvgFire/>}
       </TextContainer>
     </BannerContainer>
   );

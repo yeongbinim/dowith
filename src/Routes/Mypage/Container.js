@@ -15,12 +15,10 @@ const useTabs = (initialTab, allTabs) => {
 	};
 };
 
-
-// const contents = [() => (<section>챌린지 목록</section>), () => (<section>완료된 챌린지</section>)]
-const contents = [<ChallengeList/>, <ChallengeComplete/>];
 const Container = () => {
+	const contents = [<ChallengeList/>, <ChallengeComplete/>];
 	const tabs = useTabs(0, contents);
-	return <Presenter tabs ={tabs} />
+	return <Presenter tabs ={tabs}/>
   };
   
 export default Container;

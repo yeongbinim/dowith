@@ -1,15 +1,39 @@
 import React from "react";
 import styled from "styled-components";
+import ImageChallenge from "Components/ImageChallenge";
 
 const Container = styled.div`
-	font-size: 3rem;
-	padding:1rem;
-	min-height:60rem;
+	margin-top:3rem;
+	font-size: ${props => props.theme.fontSizes.normal};
+	display:grid;
+	grid-template-columns: repeat(auto-fill, minmax(24rem, auto));
+	grid-auto-rows: max-content;
 `;
 
-const Presenter = () => (
+
+
+
+const Presenter = (
+	{
+		gathering = [
+			{
+				id : 7,
+				title : "챌린챌린지",
+				thumbnail_url : "",
+        	},
+		],
+    	ongoing = [
+			{
+				id: 2,
+				title: "챌린챌린지",
+				thumbnail_url: "",
+			}
+    	]
+}
+) => (
 	<Container>
-		이곳은 완료된 챌린지가 나오는 곳입니다.
+		{ongoing.map(challenge=><ImageChallenge key={challenge.id} id={challenge.id} title={challenge.title} thumbnail_url={challenge.thumbnail_url} status={"진행 중"}/>)}
+		{gathering.map(challenge=><ImageChallenge key={challenge.id} id={challenge.id} title={challenge.title} thumbnail_url={challenge.thumbnail_url} status={"시작 전"}/>)}
 	</Container>
 );
 

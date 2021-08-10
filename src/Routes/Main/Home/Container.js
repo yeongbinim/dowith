@@ -1,9 +1,13 @@
 import React from "react";
 import Presenter from "./Presenter";
-// import { moviesApi } from "api";
-
+import Header from "Components/Navigation/Header";
 const Container = () => {
-	return <Presenter/>
-  };
-  
+	return (
+		<>
+			<Header />
+			<Presenter/>
+		</>
+	);
+}
+
 export default Container;
