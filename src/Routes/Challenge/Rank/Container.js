@@ -1,6 +1,7 @@
-import React ,{useState, useEffect}from "react";
+import React from "react";
+// import {useState, useEffect} from "react";
+// import { getApi } from "api";
 import Presenter from "./Presenter";
-import { getApi } from "api";
 import {datailRankPage} from "testData";
 
 const Container = () => {

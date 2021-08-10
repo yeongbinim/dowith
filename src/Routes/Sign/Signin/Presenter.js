@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Textarea from "Components/Textarea";
 import Button from "Components/SignButton";
-import { Link, NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const H3 = styled.h2`
   width: 90%;
