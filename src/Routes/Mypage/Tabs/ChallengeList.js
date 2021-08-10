@@ -6,8 +6,12 @@ const Container = styled.div`
 	margin-top:3rem;
 	font-size: ${props => props.theme.fontSizes.normal};
 	display:grid;
-	grid-template-columns: repeat(auto-fill, minmax(24rem, auto));
+	grid-template-columns: repeat(auto-fill, minmax(16rem, auto));
 	grid-auto-rows: max-content;
+	@media only screen and (min-width: 600px){
+    	grid-template-columns: repeat(auto-fill, minmax(28rem, auto));
+  	}
+	
 `;
 
 

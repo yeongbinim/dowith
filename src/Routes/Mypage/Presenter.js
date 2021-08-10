@@ -16,7 +16,7 @@ const Back = styled(Track)`
 
 const Section1 = styled.section`
 	position:relative;
-	padding:7rem 2rem 0rem;
+	padding:7rem 0 0;
 	width:100%;
 	max-width:70rem;
 	margin: 0 auto 10rem;
@@ -63,7 +63,7 @@ const CoinImg = styled(Coin)`
 
 const CoinBox = styled.div`
 	position: relative;
-	width:35rem;
+	width:33rem;
 	margin: 0 auto;
 	box-shadow: 0 5px 10px #cccccc;
 	border-radius: 10px;
