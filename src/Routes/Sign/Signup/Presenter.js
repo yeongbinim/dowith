@@ -61,11 +61,11 @@ const Presenter = () => (
       <br />
 
       <br />
-      <Textarea />
+      <Textarea placeholder="이메일을 입력해주세요" />
       <br />
-      <Textarea />
+      <Textarea placeholder="비밀번호를 입력해주세요" />
       <br />
-      <Textarea />
+      <Textarea placeholder="비밀번호 확인" />
 
       <br />
       <br />
