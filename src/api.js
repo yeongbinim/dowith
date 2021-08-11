@@ -62,3 +62,11 @@ export const getApi ={
 	getDetailRank : (challenge_id) => axios.get(`challenge/rank/${challenge_id}`),
 	
 }
+
+export const postApi ={
+	postVerification : (post_id) => axios.post(`/verification/${post_id}`),
+	postCreateChallenge : (data) => axios.post(`/challenge`,data),
+	postJoinChallenge : (challenge_id) => axios.post(`/verification/create/${challenge_id}`),
+	postSubmitPost : (challenge_id,data) => axios.post(`/challenge/${challenge_id}`,data),
+}
+
