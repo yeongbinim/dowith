@@ -112,7 +112,6 @@ const Presenter = () => (
         <InputNum />
         <br />
         <br />
-        <br />
         <H4>- 왜 챌린지 벌금이 정해져있나요?</H4>
         <span>
           챌린지 기간과 참여 포인트를 설정하면 그에 맞는 적절한 벌금 설정을
@@ -123,16 +122,16 @@ const Presenter = () => (
         <br />
         <br />
         <br />
-        <br />
         <H2>챌린지 장은 어떤 일을 하나요?</H2>
         <span>ex) 플라스틱 컵 대신 텀블러 사용하기 챌린지</span>
-        <Image width="50rem" height="30rem" z-index="-1" />
-        <br />
+        <Image width="44rem" height="20rem" z-index="-1" />
         <H4>- 챌린지에 올라오는 인증사진 살펴보기</H4>
         <span>
           해당 챌린지에 적합하지 않는 사진이 올라오면 인증을 무효처리할 수
           있어요!
         </span>
+        <br />
+        <br />
         <ChallengeButton
           content="챌린지 개설하기"
           status={true}
