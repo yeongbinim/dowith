@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import ChallengeButton from "Components/ChallengeButton";
 import IllustSection from "Components/Main/IllustSection";
 import Textarea from "Components/Textarea";
-import ImageSelect from "ImageSelect";
+import ImageSelect from "Components/ImageSelect";
 import { ReactComponent as Image } from "assets/icon-example.svg";
 
 const H2 = styled.h2`

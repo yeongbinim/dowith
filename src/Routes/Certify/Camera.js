@@ -27,7 +27,6 @@ const constraints = {
 const handleSuccess = (stream, myRef) => {
 	console.log('getUserMedia() got stream:', stream);
 	window.stream = stream;
-
 	myRef.current.srcObject = stream;
 };
 const init = async (myRef) =>{

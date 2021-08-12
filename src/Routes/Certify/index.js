@@ -56,22 +56,24 @@ const Container = () =>{
 	}
 	const stopRecording = async (mediaRecorder,myRef) =>{
 		await mediaRecorder.stop();
-		const superBuffer = new Blob(recordedBlobs, {type: 'video/webm'});
+		// const superBuffer = new Blob(recordedBlobs, {type: 'video/webm'});
 		// const url = window.URL.createObjectURL(superBuffer);
 		const url = window.URL.createObjectURL();
+
 		alert(url);
+
 		// myRef.current.src = url;
 		// myRef.current.controls = true;
 		setTimeout(()=>myRef.current.play(),1000);
 	}
-	const downloadRecord = (id) => {
-		const blob = new Blob(recordedBlobs, {type: 'video/webm'});
-		const url = window.URL.createObjectURL(blob);
-		// uploadToServer(blob,id,url);
-		setTimeout(() => {
-			window.URL.revokeObjectURL(url);
-		}, 100);
-	}
+	// const downloadRecord = (id) => {
+	// 	const blob = new Blob(recordedBlobs, {type: 'video/webm'});
+	// 	const url = window.URL.createObjectURL(blob);
+	// 	// uploadToServer(blob,id,url);
+	// 	setTimeout(() => {
+	// 		window.URL.revokeObjectURL(url);
+	// 	}, 100);
+	// }
 
 	return (<>
 		<Button style={{right:"1rem",bottom:"1rem"}} onClick={()=>{startRecording();}}>이것을 누르면 녹화시작</Button>

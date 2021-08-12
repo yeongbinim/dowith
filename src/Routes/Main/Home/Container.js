@@ -33,7 +33,7 @@ const Container = ({user}) => {
   useEffect(()=>mount(), [user]);
   return (
 	error? `${error}`:
-    <>{console.log(user)}<Header user={user}/><Presenter data_todaychallenge={ChallengeToday} data_allchallenge={Challenge} loading={loading} user={user}/><Hey/></>
+    <><Header user={user}/><Presenter data_todaychallenge={ChallengeToday} data_allchallenge={Challenge} loading={loading} user={user}/><Hey/></>
   );
 }
 export default Container;

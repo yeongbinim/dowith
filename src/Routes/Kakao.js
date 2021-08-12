@@ -1,5 +1,4 @@
 import React from 'react';
-import {signIn} from "api";
 
 
 // const CLIENT_ID = "794a04747a9ab3b3b2ca7a39c40c6c0f";

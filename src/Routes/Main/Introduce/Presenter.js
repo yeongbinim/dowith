@@ -122,8 +122,7 @@ const Presenter = () => (
           />
           <ButtonLink
             url="/createchallenge"
-            contents={[<Icon3 />, "챌린지 만들러가기"]}
-          />
+            contents={[<Icon3 />, "챌린지 만들러가기"]}/>
         </Button>
       </Section>
     </Container>
