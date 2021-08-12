@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Textarea from "Components/Textarea";
 import Button from "Components/SignButton";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const H3 = styled.h2`
   width: 90%;
@@ -67,12 +67,16 @@ const Presenter = () => (
       <br />
       <br />
       <H4>
-        먼저 <TextLink to="/signin" style={{ color: "#3c68fa" }}>로그인</TextLink>이 필요해요!
+        먼저{" "}
+        <TextLink to="/signin" style={{ color: "#3c68fa" }}>
+          로그인
+        </TextLink>
+        이 필요해요!
       </H4>
       <br />
-      <Textarea />
+      <Textarea placeholder="아이디를 입력해주세요" />
       <br />
-      <Textarea />
+      <Textarea placeholder="비밀번호를 입력해주세요" />
       <br />
       <TextLink to="/signup" style={{ color: "#3c68fa" }}>
         회원가입
