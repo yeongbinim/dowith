@@ -74,6 +74,7 @@ const Container = () =>{
 	// 		window.URL.revokeObjectURL(url);
 	// 	}, 100);
 	// }
+	//
 
 	return (<>
 		<Button style={{right:"1rem",bottom:"1rem"}} onClick={()=>{startRecording();}}>이것을 누르면 녹화시작</Button>
