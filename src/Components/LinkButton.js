@@ -26,7 +26,8 @@ const ButtonContainer = styled(Link)`
 
 const TextContainer = styled.div`
   background-color: none;
-  padding: 2rem 3rem;
+  margin: auto;
+  padding: 1.5rem 3rem;
   font-weight: 400;
   height: 100%;
   align-items: center;
@@ -37,7 +38,12 @@ const LinkButton = ({ contents, url }) => {
   return (
     <ButtonContainer to={url}>
       <TextContainer>
-        <span style={{ fontSize: "1.6rem", fontWeight: "400" }}>
+        <span
+          style={{
+            fontSize: "1.4rem",
+            fontWeight: "400",
+          }}
+        >
           {contents}
         </span>
       </TextContainer>

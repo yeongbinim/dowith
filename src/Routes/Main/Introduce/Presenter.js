@@ -5,6 +5,12 @@ import IllustSection from "Components/Main/IllustSection";
 import ButtonLink from "Components/LinkButton";
 import { ReactComponent as Image1 } from "assets/icon-introduce1.svg";
 import { ReactComponent as Image2 } from "assets/icon-introduce2.svg";
+import { ReactComponent as Image3 } from "assets/icon-introduce3.svg";
+import { ReactComponent as Image4 } from "assets/icon-introduce4.svg";
+
+import { ReactComponent as Icon1 } from "assets/icon-btn1.svg";
+import { ReactComponent as Icon2 } from "assets/icon-btn2.svg";
+import { ReactComponent as Icon3 } from "assets/icon-btn3.svg";
 
 const H2 = styled.h2`
   font-size: ${({ theme: { fontSizes } }) => fontSizes.h3};
@@ -42,13 +48,16 @@ const Section = styled.section`
 `;
 
 const Centerspan = styled.div`
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.h4};
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.normal};
+  line-height: 1.6rem;
   text-align: center;
 `;
 
 const Button = styled.div`
   margin: auto;
-  margin-top: 7rem;
+  margin-left: 6rem;
+  margin-top: 5rem;
+  position: relative;
 `;
 
 const Presenter = () => (
@@ -81,11 +90,14 @@ const Presenter = () => (
           다양한 챌린지들을 두윗러들과 함께 달려보세요!
         </Centerspan>
         <br />
-        <Image1 width="20rem" height="16rem" z-index="-1" />
-
+        <br />
+        <Image1 width="50rem" height="16rem" z-index="-1" />
+        <br />
+        <br />
         <H2>챌린지는 어떻게 이루어지나요?</H2>
 
-        <Image2 width="50rem" height="16rem" z-index="-1" />
+        <Image2 width="100%" height="16rem" z-index="-1" />
+        {/* <Image3 width="100%" height="100%" display="inline" z-index="-1" /> */}
 
         <Centerspan>
           챌린지는 두윗에서 준비한 챌린지 이외에도 원하는 챌린지를 직접 만들 수
@@ -111,9 +123,18 @@ const Presenter = () => (
         </Centerspan>
 
         <Button>
-          <ButtonLink url="/" contents={["메인 화면으로 돌아가기"]} />
-          <ButtonLink url="/challenge" contents={["전체 챌린지 둘러보기"]} />
-          <ButtonLink url="/createchallenge" contents={["챌린지 만들러가기"]} />
+          <ButtonLink
+            url="/"
+            contents={[<Icon1 />, "메인 화면으로 돌아가기"]}
+          />
+          <ButtonLink
+            url="/challenge"
+            contents={[<Icon2 />, "전체 챌린지 둘러보기"]}
+          />
+          <ButtonLink
+            url="/createchallenge"
+            contents={[<Icon3 />, "챌린지 만들러가기"]}
+          />
         </Button>
       </Section>
     </Container>

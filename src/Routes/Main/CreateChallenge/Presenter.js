@@ -35,23 +35,25 @@ const Container = styled.div`
 
 const Section = styled.section`
   position: relative;
+  margin-top: 2rem;
   z-index: 1;
   & > ul {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
 `;
 
 const Ul = styled.ul`
   position: relative;
   display: flex;
-  margin-right: 3rem;
+  margin-bottom: 2rem;
+  margin-right: 1rem;
   justify-content: space-around;
 `;
 
 const Li = styled.li`
   margin-bottom: 1rem;
-  background-color: pink;
-  list-style: circle;
+  margin-left: 4rem;
+  list-style: square;
 `;
 
 const DateSection = styled.div`
@@ -66,8 +68,10 @@ const InputNum = styled.input`
 `;
 
 const DateInput = styled.input`
-  padding: 3rem;
-  border: none;
+  margin-top: 1rem;
+  padding: 2rem;
+  border: 1px solid #c1c1cc;
+  border-radius: 1rem;
 `;
 
 const Presenter = () => (
@@ -113,10 +117,9 @@ const Presenter = () => (
             </Li>
           </Ul>
         </DateSection>
-        <br />
-        <br />
         <H2>챌린지를 참여하기 위한 포인트를 설정해주세요</H2>
         <Textarea placeholder="포인트를 적당하게 설정하면 더 많은 두윗러들과 함께 달릴 수 있어요!" />
+        <br />
         <br />
         <br />
         <H2>두윗이 제안하는 챌린지의 벌금이에요!</H2>
