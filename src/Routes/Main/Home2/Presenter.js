@@ -7,15 +7,15 @@ import Helmet from "react-helmet";
 import Loader from "Components/Loader";
 
 const H2 = styled.h2`
-  font-size: ${({theme:{fontSizes}})=>fontSizes.h2};
-  line-height:1.3em;
-  font-weight:400;
-  color : ${props=>(props.isColor? props.theme.colors.main : 'black')};
-  & > span{
-    font-size: ${({theme:{fontSizes}})=>fontSizes.normal};
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.h2};
+  line-height: 1.3em;
+  font-weight: 400;
+  color: ${(props) => (props.isColor ? props.theme.colors.main : "black")};
+  & > span {
+    font-size: ${({ theme: { fontSizes } }) => fontSizes.normal};
   }
-  & > strong{
-    font-weight:700;
+  & > strong {
+    font-weight: 700;
   }
 `;
 
@@ -24,28 +24,28 @@ const Container = styled.div`
 `;
 
 const Section = styled.section`
-  position:relative;
-  z-index:1;
-  & > ul{
-    margin-bottom:5rem;
+  position: relative;
+  z-index: 1;
+  & > ul {
+    margin-bottom: 5rem;
   }
 `;
 const Ul = styled.ul`
   margin: 1rem 0;
-  display:flex;
-  overflow-x:scroll;
-  overflow-y:hidden;
-  width:105%;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 105%;
   & > li:not(:last-child) {
-    margin-right:1rem;
+    margin-right: 1rem;
   }
 `;
 const Dummy = styled.div`
-  width:25vw;
-  height:1rem;
-  background:none;
+  width: 25vw;
+  height: 1rem;
+  background: none;
   @media only screen and (min-width: 1000px) {
-    width:60vw;
+    width: 60vw;
   }
 `;
 
@@ -78,8 +78,5 @@ const Presenter = ({loading, data_allchallenge}) => loading ? (<><Helmet><title>
   </Container>
   </>
 );
-
-// Presenter.propTypes = {
-// };
 
 export default Presenter;

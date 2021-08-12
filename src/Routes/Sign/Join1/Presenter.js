@@ -85,7 +85,7 @@ const Presenter = () => (
       <InputContainer>
         <ProfileImage />
         <TextContainer>
-          <Textarea />
+          <Textarea placeholder="닉네임을 입력해주세요" />
         </TextContainer>
       </InputContainer>
 

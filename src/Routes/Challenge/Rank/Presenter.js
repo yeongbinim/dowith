@@ -6,22 +6,23 @@ import ProfileCircle from "Components/ProfileCircle";
 import Loader from "Components/Loader";
 
 const Div = styled.div`
-  font-size: ${props=>props.theme.fontSizes.normal};
-  padding:1rem 5rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background-color: ${props=>props.my? props.theme.colors.main:"white"};
-  border-bottom:1px solid #dddddd;
-  color: ${props=>props.my? "white":"black"};
-  &>div:first-child{
-    display:flex;
-    align-items:center;
-    span:first-child{
-      margin-right:3rem;
+  font-size: ${(props) => props.theme.fontSizes.normal};
+  padding: 1rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${(props) =>
+    props.my ? props.theme.colors.main : "white"};
+  border-bottom: 1px solid #dddddd;
+  color: ${(props) => (props.my ? "white" : "black")};
+  & > div:first-child {
+    display: flex;
+    align-items: center;
+    span:first-child {
+      margin-right: 3rem;
     }
-    span:last-child{
-      margin-left:1rem;
+    span:last-child {
+      margin-left: 1rem;
     }
   }
 `;
@@ -45,19 +46,19 @@ loading ?
           </div>
         </Div> : <></>}
         {dataRank.participations.map(participation=>(<Div key={participation.user_id}>
+
           <div>
             <span>{participation.rank} 위</span>
-            <ProfileCircle image_url={participation.image_url} size="4rem"/>
+            <ProfileCircle image_url={participation.image_url} size="4rem" />
             <span>{participation.nickname}님</span>
           </div>
           <div>
             {participation.verification_count}/{dataRank.elapse_days}
           </div>
-        </Div>))}
-      </>
+        </Div>
+      ))}
+    </>
   );
-  
+
+
 export default Presenter;
-
-
-

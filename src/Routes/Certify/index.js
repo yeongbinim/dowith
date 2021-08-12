@@ -56,9 +56,10 @@ const Container = () =>{
 	}
 	const stopRecording = async (mediaRecorder,myRef) =>{
 		await mediaRecorder.stop();
+		const im
 		const superBuffer = new Blob(recordedBlobs, {type: 'video/webm'});
 		// const url = window.URL.createObjectURL(superBuffer);
-		const url = window.URL.createObjectURL("assets/default-human.png");
+		const url = window.URL.createObjectURL();
 		alert(url);
 		// myRef.current.src = url;
 		// myRef.current.controls = true;

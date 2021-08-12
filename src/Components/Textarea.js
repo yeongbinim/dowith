@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const TextareaContainer = styled.div`
+const TextInput = styled.input`
   border: 1px solid #cfcfcf;
   outline-style: none;
-  border-radius: 24px;
+  border-radius: 3rem;
   opacity: 1;
   height: 48px;
   width: 100%;
@@ -12,10 +12,14 @@ const TextareaContainer = styled.div`
   padding: 0 10px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
+  ::placeholder {
+    color: #c1c1c1;
+  }
 `;
 
-const Textarea = () => {
-  return <TextareaContainer />;
+const Textarea = ({ placeholder }) => {
+  return <TextInput placeholder={placeholder} />;
 };
 
 export default Textarea;
