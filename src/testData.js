@@ -15,6 +15,39 @@ export const myData = {
 	user_permissions: []
 }
 
+export const MainPage = {
+	data_todaychallenge : {
+	ongoing:[
+		{id : 7, title : "챌린챌린지"},
+		{id : 5, title : "식사하기"},
+	],
+	finished:[
+		{id : 1, title : "누워서 티비보기"},
+		{id : 2, title : "밥먹기"},
+		{id : 3, title : "게임하기"},
+	],
+	},
+	data_allchallenge : {
+		gathering:[
+		{id : 7, title : "챌린챌린지", thumbnail_url : "", participated_count : 4},
+		{id : 2, title : "밥먹기" ,thumbnail_url : "", participated_count : 23},
+		{id : 3, title : "게임하기" ,thumbnail_url : "", participated_count : 41},
+		{id : 5, title : "식사하기" ,thumbnail_url : "", participated_count : 55},
+		],
+		ongoing:[
+		{id : 7, title : "챌린챌린지" ,thumbnail_url : "", participated_count : 1},
+		{id : 2, title : "밥먹기" ,thumbnail_url : "", participated_count : 9},
+		{id : 3, title : "게임하기" ,thumbnail_url : "", participated_count : 14},
+		{id : 5, title : "식사하기" ,thumbnail_url : "", participated_count : 44},
+		],
+		compelete:[
+		{id : 7, title : "챌린챌린지" ,thumbnail_url : "", participated_count : 6444},
+		{id : 2, title : "밥먹기" ,thumbnail_url : "", participated_count : 455},
+		{id : 3, title : "게임하기" ,thumbnail_url : "", participated_count : 1433},
+		{id : 5, title : "식사하기" ,thumbnail_url : "", participated_count : 341},
+		]
+	},loading : false
+}
 
 export const detailPage = {
 	detail : {
@@ -34,6 +67,7 @@ export const detailPage = {
 		total_accumulated_fine : 0,
 		elapsed_days : 2,
 		days_left : 0,
+		captain: 2
 	},
 	detailMy :{
 		verification_complete_count : 2,
@@ -50,7 +84,7 @@ export const detailPage = {
 			file_url : "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE",
 			article : "나는야 멋쟁이",
 			created_at : "2021-08-07T12:54:47.660461+09:00",
-			is_verificated : false,
+			is_verificated : true,
 		  }
 		]
 	},
@@ -59,7 +93,7 @@ export const detailPage = {
 			id: 3,
 			nickname: "admin",
 			user_image_url: null,
-			file_url: "http://kk.com",
+			file_url: "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE",
 			article: "alkdgjha;kldg",
 			created_at: "2021-08-08T17:34:02.998174+09:00",
 			is_verificated: false,
@@ -69,7 +103,7 @@ export const detailPage = {
 			id: 2,
 			nickname: "aa",
 			user_image_url: null,
-			file_url: "http://l.com",
+			file_url: "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE",
 			article: "adsf",
 			created_at: "2021-08-08T17:10:09.934102+09:00",
 			is_verificated: false,
@@ -79,7 +113,7 @@ export const detailPage = {
 			id: 1,
 			nickname: "aa",
 			user_image_url: null,
-			file_url: "http://naver.com",
+			file_url: "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE",
 			article: "test",
 			created_at: "2021-08-07T12:54:47.660461+09:00",
 			is_verificated: true,

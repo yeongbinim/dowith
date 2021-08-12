@@ -22,6 +22,9 @@ const globalStyles = createGlobalStyle`
 	@media(max-width:1000px){
 		html{font-size:10px};
 	}
+	@media(max-width:380px){
+		html{font-size:8px};
+	}
 `;
 
 export default globalStyles;

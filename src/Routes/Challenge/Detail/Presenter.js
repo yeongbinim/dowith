@@ -1,8 +1,9 @@
 import React from "react";
 import Helmet from "react-helmet";
-import PropTypes from "prop-types";
 import {ChallengeContainer, MyverifyContainer, AllverifyContainer} from "./Components";
 import ChallengeButton from "Components/ChallengeButton";
+import Loader from "Components/Loader";
+import { postApi } from "api";
 
 // temp 값
 // 0 : 내 챌린지o [시작전]
@@ -11,7 +12,7 @@ import ChallengeButton from "Components/ChallengeButton";
 // 3 : 내 챌린지x [시작전]
 // 4 : 내 챌린지x [진행중, 완료]
 // 5 : 로그인 안됨
-function setTemp(status, isLogin, isMy){
+const setTemp = (status, isLogin, isMy) =>{
   let temp;
   if(isLogin){
     if(isMy){
@@ -23,7 +24,8 @@ function setTemp(status, isLogin, isMy){
         temp = 2;
       }
     }else{
-      status !== "종료된 챌린지" ? temp = 3 : temp = 4;
+      console.log(status);
+      status === "시작 전" ? temp = 3 : temp = 4;
     }
   }
   else{
@@ -32,9 +34,23 @@ function setTemp(status, isLogin, isMy){
   return temp;
 }
 
+const postSubmit = async(id) =>{
+  try{
+    const {data} = await postApi.postJoinChallenge(id);
+    console.log(data);
+  }catch{
+    alert("에러");
+  }
+  finally{
+    window.location.reload();
+  }
+}
 
-const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user}) =>{
-  let temp = setTemp(data_challenge.challenge_status, user!==null, data_myverify!==null);
+const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user, id}) =>{
+  if (loading){
+    return(<><Helmet><title>Loading | Dowith</title></Helmet><Loader /></>);
+  }else{
+    let temp = setTemp(data_challenge.challenge_status, user!==null, data_allverify!==null);
   const buttonCondition = [{
       status:false,
       content:`챌린지 시작까지 D-${data_challenge.days_left}`,
@@ -43,8 +59,8 @@ const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user
     },{
       status:true,
       content:`챌린지 ${data_challenge.elapsed_days}일차 인증하기`,
-      url:null,
-      clickEvent:()=>{alert("챌린지 인증하기");},
+      url:`/certify/${id}`,
+      clickEvent:null,
     },{
       status:false,
       content:`이미 완료된 챌린지에요`,
@@ -54,7 +70,7 @@ const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user
       status:true,
       content:`챌린지 시작하기`,
       url:null,
-      clickEvent:()=>{alert("챌린지 시작하기");},
+      clickEvent:()=>{postSubmit(id);},
     },{
       status:false,
       content:`참여하지 않은 챌린지입니다`,
@@ -67,25 +83,16 @@ const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user
       clickEvent:null,
     }
   ]
-  
-  
-  return loading ? (<><Helmet><title>Loading | Dowith</title></Helmet>{/* <Loader /> */}</>) : 
-    (
-      <>
-        <Helmet><title>Challenge | Dowith</title></Helmet>
-        <ChallengeContainer data_challenge={data_challenge} temp={temp}/>
-        {temp===1 || temp === 2? (<><MyverifyContainer data_myverify={data_myverify} image_url={user.image_url}/><AllverifyContainer data_allverify={data_allverify}/></>):(<></>)}
-        <ChallengeButton {...buttonCondition[temp]}/>
-        <div style={{height:'10rem'}}></div>
-      </>
-  )
-};
-
-Presenter.propTypes = {
-  data_challenge:PropTypes.object.isRequired,
-  data_myverify:PropTypes.object,
-  data_allverify:PropTypes.array,
-  loading: PropTypes.bool.isRequired,
+  return (
+    <>
+      <Helmet><title>Challenge | Dowith</title></Helmet>
+      <ChallengeContainer data_challenge={data_challenge} temp={temp}/>
+      {temp===1 || temp === 2? (<><MyverifyContainer data_myverify={data_myverify} image_url={user.image_url}/><AllverifyContainer data_allverify={data_allverify}/></>):(<></>)}
+      <ChallengeButton {...buttonCondition[temp]}/>
+      <div style={{height:'10rem'}}></div>
+    </>
+  );
+  }
 };
 
 export default Presenter;

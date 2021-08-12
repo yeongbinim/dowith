@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import IllustSection from "Components/Main/IllustSection";
 import styled from "styled-components";
 import ProfileCircle from "Components/ProfileCircle";
-import PropTypes from "prop-types";
+import Loader from "Components/Loader";
 
 const Div = styled.div`
   font-size: ${props=>props.theme.fontSizes.normal};
@@ -26,41 +26,36 @@ const Div = styled.div`
   }
 `;
 
-const Presenter = ({dataRank:{my, participations, elapse_days, },loading=false}) =>
+const Presenter = ({dataRank,loading}) =>
 loading ? 
-    (<><Helmet><title>Loading | Dowith</title></Helmet>{/* <Loader /> */}</>) : 
+    (<><Helmet><title>Loading | Dowith</title></Helmet><Loader /></>) : 
     (
       <>
+        {console.log(dataRank)}
         <Helmet><title>Rank | Dowith</title></Helmet>
         <IllustSection reverse={true} contents={["오늘 나는 몇등?","우리 챌린지의 챌린지 현황을", "한눈에 확인해보세요"]}/>
-        <Div my={true} key={0}>
+        {dataRank.my ? <Div my={true} key={0}>
           <div>
-            <span>{my.rank} 위</span>
-            <ProfileCircle image_url={my.image_url} size="4rem"/>
-            <span>{my.nickname}님</span>
+            <span>{dataRank.my.rank} 위</span>
+            <ProfileCircle image_url={dataRank.my.image_url} size="4rem"/>
+            <span>{dataRank.my.nickname}님</span>
           </div>
           <div>
-            {my.verification_count}/{elapse_days}
+            {dataRank.my.verification_count}/{dataRank.elapse_days}
           </div>
-        </Div>
-        {participations.map(participation=>(<Div key={participation.user_id}>
+        </Div> : <></>}
+        {dataRank.participations.map(participation=>(<Div key={participation.user_id}>
           <div>
             <span>{participation.rank} 위</span>
             <ProfileCircle image_url={participation.image_url} size="4rem"/>
             <span>{participation.nickname}님</span>
           </div>
           <div>
-            {participation.verification_count}/{elapse_days}
+            {participation.verification_count}/{dataRank.elapse_days}
           </div>
         </Div>))}
       </>
   );
-
-  Presenter.propTypes = {
-    my:PropTypes.array,
-    participations:PropTypes.array,
-    elapse_days: PropTypes.number,
-  };
   
 export default Presenter;
 

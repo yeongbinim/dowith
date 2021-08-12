@@ -24,6 +24,7 @@ export const moveRoad = keyframes`
 const Container = styled.div`
 	width:100vw;
 	left:-2rem;
+	overflow-x: hidden;
 	height:20rem;
 	background-color: #d1e2ff;
 	animation: ${fadeIn} 1s linear alternate both;

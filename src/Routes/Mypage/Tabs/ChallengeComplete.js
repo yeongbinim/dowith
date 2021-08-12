@@ -6,45 +6,16 @@ const Container = styled.div`
 	margin-top:3rem;
 	font-size: ${props => props.theme.fontSizes.normal};
 	display:grid;
-	grid-template-columns: repeat(auto-fill, minmax(16rem, auto));
+	grid-template-columns: repeat(auto-fill, minmax(18rem, auto));
     grid-auto-rows: max-content;
-    @media only screen and (min-width: ${({theme:{deviceSizes}}) => deviceSizes.tabletL}){
+    @media only screen and (min-width: 600px){
     	grid-template-columns: repeat(auto-fill, minmax(28rem, auto));
   	}
 `;
 
-const Presenter = ({
-	finished = [
-        {
-            id: 3,
-            title: "ccc",
-            thumbnail_url: "",
-        },
-		{
-            id: 1,
-            title: "ccc",
-            thumbnail_url: "",
-        },
-		{
-            id: 2,
-            title: "ccc",
-            thumbnail_url: "",
-        },
-		{
-            id: 4,
-            title: "ccc",
-            thumbnail_url: "",
-        },
-		{
-            id: 5,
-            title: "ccc",
-            thumbnail_url: "",
-        },
-	]
-}
-) => (
+const Presenter = ({data_challenge}) => (
 	<Container>
-		{finished.map(challenge=><ImageChallenge key={challenge.id} id={challenge.id} title={challenge.title} thumbnail_url={challenge.thumbnail_url} status={"완료"}/>)}
+		{data_challenge.finished.map(challenge=><ImageChallenge key={challenge.id} id={challenge.id} title={challenge.title} thumbnail_url={challenge.thumbnail_url} status={"완료"}/>)}
 	</Container>
 );
 

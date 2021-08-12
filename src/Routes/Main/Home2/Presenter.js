@@ -4,6 +4,7 @@ import Image from "Components/Main/ImgBox";
 import Banner from "Components/Main/Banner";
 import IllustSection from "Components/Main/IllustSection";
 import Helmet from "react-helmet";
+import Loader from "Components/Loader";
 
 const H2 = styled.h2`
   font-size: ${({theme:{fontSizes}})=>fontSizes.h2};
@@ -50,43 +51,27 @@ const Dummy = styled.div`
 
 
 
-const Presenter = ({
-  data_allchallenge = {
-    gathering:[
-      {id : 7, title : "챌린챌린지", thumbnail_url : "", participated_count : 4},
-      {id : 2, title : "밥먹기" ,thumbnail_url : "", participated_count : 23},
-      {id : 3, title : "게임하기" ,thumbnail_url : "", participated_count : 41},
-      {id : 5, title : "식사하기" ,thumbnail_url : "", participated_count : 55},
-    ],
-    ongoing:[
-      {id : 7, title : "챌린챌린지" ,thumbnail_url : "", participated_count : 1},
-      {id : 2, title : "밥먹기" ,thumbnail_url : "", participated_count : 9},
-      {id : 3, title : "게임하기" ,thumbnail_url : "", participated_count : 14},
-      {id : 5, title : "식사하기" ,thumbnail_url : "", participated_count : 44},
-    ],
-    compelete:[
-      {id : 7, title : "챌린챌린지" ,thumbnail_url : "", participated_count : 6444},
-      {id : 2, title : "밥먹기" ,thumbnail_url : "", participated_count : 455},
-      {id : 3, title : "게임하기" ,thumbnail_url : "", participated_count : 1433},
-      {id : 5, title : "식사하기" ,thumbnail_url : "", participated_count : 341},
-    ]
-  },loading = false
-}) => loading ? (<><Helmet><title>Loading | Dowith</title></Helmet>{/* <Loader /> */}</>) : ( 
+const Presenter = ({loading, data_allchallenge}) => loading ? (<><Helmet><title>Loading | Dowith</title></Helmet><Loader /></>) : ( 
   <>
   <Helmet><title>List | Dowith</title></Helmet>
   <IllustSection />
   <Container>
     <Section>
-      <H2>인기있는 챌린지<br/><span>많은 분들이 참여하고 있는 챌린지에요! 우리 함께 달려볼까요 ?</span></H2>
+      <H2>마감임박 챌린지<br/><span>아직 시작하지 않은 챌린지에요! 참여해보세요!</span></H2>
       <Ul>
       {data_allchallenge.gathering.map(challenge => <li key={challenge.id}><Image title={challenge.title} thumbnail_url={challenge.thumbnail_url} participated_count={challenge.participated_count} id={challenge.id}/></li>)}
       <li><Dummy/></li>
       </Ul>
       <Banner reverse={true} contents={["원하는 챌린지가 없다면?","두윗에서는 직접 챌린지를 만들 수 있어요!","챌린지장이 되어 두윗러들과 함께 달려보아요!",">> 챌린지 트랙 만들러가기"]}/>
       <br/><br/>
-      <H2>두윗두윗 츄 ..완료된 챌린지<br/><span>함께여서 더욱 즐거웠던 두윗 챌린지들을 추억해보세요!</span></H2>
+      <H2>진행중인 챌린지<br/><span>아쉽게도 먼저 시작한 챌린지에요~ 구경하고 가세요!</span></H2>
       <Ul>
-      {data_allchallenge.compelete.map(challenge => <li key={challenge.id}><Image title={challenge.title} thumbnail_url={challenge.thumbnail_url} participated_count={challenge.participated_count} id={challenge.id}/></li>)}
+      {data_allchallenge.ongoing.map(challenge => <li key={challenge.id}><Image title={challenge.title} thumbnail_url={challenge.thumbnail_url} participated_count={challenge.participated_count} id={challenge.id}/></li>)}
+      <li><Dummy/></li>
+      </Ul>
+      <H2>완료된 챌린지<br/><span>함께여서 더욱 즐거웠던 두윗 챌린지들을 추억해보세요!</span></H2>
+      <Ul>
+      {data_allchallenge.complete.map(challenge => <li key={challenge.id}><Image title={challenge.title} thumbnail_url={challenge.thumbnail_url} participated_count={challenge.participated_count} id={challenge.id}/></li>)}
       <li><Dummy/></li>
       </Ul>
     </Section>

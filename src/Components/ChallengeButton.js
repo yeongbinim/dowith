@@ -8,12 +8,13 @@ const ALink = styled(Link)`
 	width:100%;
 	border-radius:1rem;
 	overflow:hidden;
+	display:block;
 	background-color: white;
 	position:fixed;
 	z-index: 999;
 	left:0;
 	bottom:-1.5rem;
-	&:hover{
+	&>div:hover{
 		opacity:0.7;
 	}
 	&>div{

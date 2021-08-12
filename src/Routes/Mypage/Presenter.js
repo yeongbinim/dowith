@@ -4,6 +4,7 @@ import ProfileCircle from "Components/ProfileCircle";
 import Helmet from "react-helmet";
 import { ReactComponent as Track } from 'assets/icon-track.svg';
 import { ReactComponent as Coin } from 'assets/icon-coin.svg';
+import Loader from "Components/Loader";
 
 const Back = styled(Track)`
 	position:absolute;
@@ -64,6 +65,7 @@ const CoinImg = styled(Coin)`
 const CoinBox = styled.div`
 	position: relative;
 	width:33rem;
+	max-width:90%;
 	margin: 0 auto;
 	box-shadow: 0 5px 10px #cccccc;
 	border-radius: 10px;
@@ -88,7 +90,7 @@ const CoinBox = styled.div`
 
 const Section2 = styled.section`
 	position:relative;
-	z-index:1;
+	min-height:35rem;
 `
 const Button = styled.div`
 	font-size: ${({theme:{fontSizes}})=>fontSizes.h3};
@@ -102,17 +104,8 @@ const ButtonBox = styled.div`
 	display:flex;
 `;
 
-const Presenter = ({
-	data_challenge = {
-		gathering_ongoing_count : 2,
-		finished_count : 5,
-	},
-	data_my = {
-		nickname : "홍여진",
-		image_url : "http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg",
-		point : 5000,
-	},loading = false, tabs}) =>
-		loading ? (<><Helmet><title>Loading | Dowith</title></Helmet>{/* <Loader /> */}</>) : 
+const Presenter = ({data_challenge, data_my, loading, tabs}) =>
+		loading ? (<><Helmet><title>Loading | Dowith</title></Helmet><Loader /></>) : 
 		(
 			<>
 			<Helmet><title>Mypage | Dowith</title></Helmet>

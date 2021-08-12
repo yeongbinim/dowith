@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "react-sidebar";
 import Nav from "Components/Navigation/Nav";
+// import Sidebar from "./Sidebar";
 import MenuButton from "Components/Navigation/MenuButton";
 
 class Header extends React.Component {
@@ -23,7 +24,7 @@ class Header extends React.Component {
     return (
 		<>
 			<Sidebar
-				sidebar={<Nav onClick={()=>this.onSetSidebarOpen(false)}/>}
+				sidebar={<Nav user={this.props.user} onClick={()=>this.onSetSidebarOpen(false)}/>}
 				open={this.state.sidebarOpen}
 				onSetOpen={this.onSetSidebarOpen}
 				styles={{ sidebar: { background: "white" } }}
@@ -32,5 +33,7 @@ class Header extends React.Component {
     );
   }
 }
+
+// const Header = () => <Sidebar width={800} height={"100vh"}><Nav/></Sidebar>
 
 export default Header;

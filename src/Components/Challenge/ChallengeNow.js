@@ -54,7 +54,7 @@ const ChallengeNow = ({
 	total_challenge_period,
 	days_left,
 	id,
-	challenge_status
+	challenge_status,temp
 }) => (
 	  challenge_status==="시작 전" ? (<Section>
 		  	<H2>챌린지 현황</H2>
@@ -67,7 +67,7 @@ const ChallengeNow = ({
 				<span>오늘은 <u>챌린지 {elapsed_days}일째</u></span>
 				<span>누적상금 <u>{total_accumulated_fine}P</u></span>
 			</Ment>
-			<ALink to={`/challenge/rank/${id}`}>전체 랭킹 보기</ALink>
+			{temp===1 || temp===2 ? <ALink to={`/challenge/rank/${id}`}>전체 랭킹 보기</ALink>:<></>}
 		</Section>)
 	);
 

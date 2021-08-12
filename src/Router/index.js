@@ -19,11 +19,13 @@ import Detail from "Routes/Challenge/Detail";
 import DetailRank from "Routes/Challenge/Rank";
 import Mypage from "Routes/Mypage";
 import Kakao from "Routes/Kakao";
+import Scroll from "./Scroll";
 
 import {useState, useEffect} from "react";
 import { getApi } from "api";
 
 const RouterC = () => {
+	// const user=null;
  	const [user, setUser] = useState(null);
   	const mount = async() => {
 		try {
@@ -34,13 +36,13 @@ const RouterC = () => {
 		};
 	}
 	useEffect(() => mount(), []);
-
 	return(
 	<Router>
+		<Scroll/>
 		<Back/>
 		<Switch>
 			<Route path="/" exact={true} render={()=><Home user={user}/>} />
-			<Route path="/certify" render={()=><Certify user={user}/>} />
+			<Route path="/certify/:id" render={({match:{params:{id}}})=><Certify user={user} id={id}/>} />
 			<Route path="/mypage" render={()=><Mypage user={user}/>} />
 			<Route path="/introduce" render={()=><Introduce/>} />
 			<Route path="/createchallenge" render={()=><CreateChallenge user={user}/>} />
@@ -50,8 +52,8 @@ const RouterC = () => {
 			<Route path="/kakao" render={()=><Kakao user={user}/>} />
 			<Route path="/join1" render={()=><Join1 user={user}/>} />
 			<Route path="/join2" render={()=><Join2 user={user}/>} />
-			<Route path="/challenge/:id" exact={true} render={()=><Detail user={user}/>} />
-			<Route path="/challenge/rank/:id" render={()=><DetailRank user={user}/>} />
+			<Route path="/challenge/:id" exact={true} render={({match:{params:{id}}})=><Detail user={user} id={id}/>} />
+			<Route path="/challenge/rank/:id" render={({match:{params:{id}}})=><DetailRank user={user} id={id}/>} />
 			<Redirect from="*" to="/"/>
 		</Switch>
 	</Router>)};

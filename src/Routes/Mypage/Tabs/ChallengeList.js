@@ -6,7 +6,7 @@ const Container = styled.div`
 	margin-top:3rem;
 	font-size: ${props => props.theme.fontSizes.normal};
 	display:grid;
-	grid-template-columns: repeat(auto-fill, minmax(16rem, auto));
+	grid-template-columns: repeat(auto-fill, minmax(18rem, auto));
 	grid-auto-rows: max-content;
 	@media only screen and (min-width: 600px){
     	grid-template-columns: repeat(auto-fill, minmax(28rem, auto));
@@ -17,27 +17,10 @@ const Container = styled.div`
 
 
 
-const Presenter = (
-	{
-		gathering = [
-			{
-				id : 7,
-				title : "챌린챌린지",
-				thumbnail_url : "",
-        	},
-		],
-    	ongoing = [
-			{
-				id: 2,
-				title: "챌린챌린지",
-				thumbnail_url: "",
-			}
-    	]
-}
-) => (
+const Presenter = ({data_challenge}) => (
 	<Container>
-		{ongoing.map(challenge=><ImageChallenge key={challenge.id} id={challenge.id} title={challenge.title} thumbnail_url={challenge.thumbnail_url} status={"진행 중"}/>)}
-		{gathering.map(challenge=><ImageChallenge key={challenge.id} id={challenge.id} title={challenge.title} thumbnail_url={challenge.thumbnail_url} status={"시작 전"}/>)}
+		{data_challenge.ongoing.map(challenge=><ImageChallenge key={challenge.id} id={challenge.id} title={challenge.title} thumbnail_url={challenge.thumbnail_url} status={"진행 중"}/>)}
+		{data_challenge.gathering.map(challenge=><ImageChallenge key={challenge.id} id={challenge.id} title={challenge.title} thumbnail_url={challenge.thumbnail_url} status={"시작 전"}/>)}
 	</Container>
 );
 
