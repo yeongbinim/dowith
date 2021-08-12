@@ -56,7 +56,6 @@ const Container = () =>{
 	}
 	const stopRecording = async (mediaRecorder,myRef) =>{
 		await mediaRecorder.stop();
-		const im
 		const superBuffer = new Blob(recordedBlobs, {type: 'video/webm'});
 		// const url = window.URL.createObjectURL(superBuffer);
 		const url = window.URL.createObjectURL();

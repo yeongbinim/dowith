@@ -5,9 +5,6 @@ import IllustSection from "Components/Main/IllustSection";
 import ButtonLink from "Components/LinkButton";
 import { ReactComponent as Image1 } from "assets/icon-introduce1.svg";
 import { ReactComponent as Image2 } from "assets/icon-introduce2.svg";
-import { ReactComponent as Image3 } from "assets/icon-introduce3.svg";
-import { ReactComponent as Image4 } from "assets/icon-introduce4.svg";
-
 import { ReactComponent as Icon1 } from "assets/icon-btn1.svg";
 import { ReactComponent as Icon2 } from "assets/icon-btn2.svg";
 import { ReactComponent as Icon3 } from "assets/icon-btn3.svg";
@@ -25,14 +22,6 @@ const H2 = styled.h2`
   }
   margin-top: 2rem;
   margin-bottom: 1rem;
-`;
-
-const H4 = styled.h4`
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.h4};
-  line-height: 1.3em;
-  font-weight: 700;
-  line-height: 2.8rem;
-  color: #3c68fa;
 `;
 
 const Container = styled.div`
