@@ -33,9 +33,9 @@ const TextContainer = styled.div`
   justify-content: space-between;
 `;
 
-const LinkButton = ({ contents }) => {
+const LinkButton = ({ contents, url }) => {
   return (
-    <ButtonContainer>
+    <ButtonContainer to={url}>
       <TextContainer>
         <span style={{ fontSize: "1.6rem", fontWeight: "400" }}>
           {contents}

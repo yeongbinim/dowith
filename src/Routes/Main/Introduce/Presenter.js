@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Helmet from "react-helmet";
-import { Link } from "react-router-dom";
 import IllustSection from "Components/Main/IllustSection";
 import ButtonLink from "Components/LinkButton";
 import { ReactComponent as Image1 } from "assets/icon-introduce1.svg";
@@ -112,9 +111,9 @@ const Presenter = () => (
         </Centerspan>
 
         <Button>
-          <ButtonLink to="/" contents={["메인 화면으로 돌아가기"]} />
-          <ButtonLink to="/challenge" contents={["전체 챌린지 둘러보기"]} />
-          <ButtonLink to="/createchallenge" contents={["챌린지 만들러가기"]} />
+          <ButtonLink url="/" contents={["메인 화면으로 돌아가기"]} />
+          <ButtonLink url="/challenge" contents={["전체 챌린지 둘러보기"]} />
+          <ButtonLink url="/createchallenge" contents={["챌린지 만들러가기"]} />
         </Button>
       </Section>
     </Container>

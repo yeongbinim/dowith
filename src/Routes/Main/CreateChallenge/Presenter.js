@@ -43,12 +43,15 @@ const Section = styled.section`
 
 const Ul = styled.ul`
   position: relative;
-  width: 45%;
+  display: flex;
   margin-right: 3rem;
+  justify-content: space-around;
 `;
 
 const Li = styled.li`
   margin-bottom: 1rem;
+  background-color: pink;
+  list-style: circle;
 `;
 
 const DateSection = styled.div`
@@ -60,6 +63,11 @@ const InputNum = styled.input`
   border: none;
   border-bottom: 0.3rem solid #3c68fa;
   outline: none;
+`;
+
+const DateInput = styled.input`
+  padding: 3rem;
+  border: none;
 `;
 
 const Presenter = () => (
@@ -93,12 +101,16 @@ const Presenter = () => (
         <H2>챌린지의 기간을 설정해주세요</H2>
         <DateSection>
           <Ul>
-            <Li>-챌린지 시작 날짜</Li>
-            <Textarea />
-          </Ul>
-          <Ul>
-            <Li>-챌린지 끝 날짜</Li>
-            <Textarea />
+            <Li>
+              챌린지 시작 날짜
+              <br />
+              <DateInput type="date" />
+            </Li>
+            <Li>
+              챌린지 끝 날짜
+              <br />
+              <DateInput type="date" />
+            </Li>
           </Ul>
         </DateSection>
         <br />
