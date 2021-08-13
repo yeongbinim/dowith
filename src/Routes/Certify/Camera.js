@@ -84,7 +84,7 @@ const init = async (refCamera) => {
 
 const capture = (refCanvas,refCamera,mediaStream, id)=>{
 	const canvas = refCanvas.current;
-	canvas.width = window.innerWidth > 500 ? "1280" : "420";
+	canvas.width = "720";
     canvas.height = "720";
 	canvas.getContext('2d').drawImage(refCamera.current,0,0);
 	let dataUri = canvas.toDataURL('image/png', 0.92);

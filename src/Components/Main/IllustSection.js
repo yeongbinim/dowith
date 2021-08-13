@@ -90,7 +90,7 @@ const ImgBox = ({
       </span>
       <br />
       <span style={{ fontSize: "2rem", fontWeight: "400" }}>{contents[2]}</span>
-      <Road><div></div></Road>
+      {create ? <Road><div></div></Road> : <></>}
     </IllustSection>
   );
 };
