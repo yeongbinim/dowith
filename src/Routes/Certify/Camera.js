@@ -81,23 +81,52 @@ const init = async (refCamera) => {
 	return stream;
 };
 
+const capture = (refCanvas,refCamera,mediaStream, id)=>{
+	const canvas = refCanvas.current;
+	canvas.width = "1280";
+    canvas.height = "720";
+	canvas.getContext('2d').drawImage(refCamera.current,0,0);
+	let dataUri = canvas.toDataURL('image/png', 0.92);
+    let d = dataUri.split(',')[1];
+    let mimeType = dataUri.split(';')[0].slice(5);
 
+    let bytes = window.atob(d);
+    let buf = new ArrayBuffer(bytes.length);
+    let arr = new Uint8Array(buf);
 
-const capture = (mediaStream, id) => {
-	const track = mediaStream.getVideoTracks()[0];
-	let imageCapture = new ImageCapture(track);
-	imageCapture.takePhoto().then((response) => {
-		console.log(response)
-		// const objectURL = URL.createObjectURL(response);
-		const formData = new FormData();
-		formData.append('article', "hihi");
-		formData.append('image_url', response);
-		postApi.postSubmitPost(id, formData).then(() => { alert("오늘의 인증샷 제출완료!"); window.history.back(); }).catch((error) => { alert(error); window.history.back(); });
-	})
+    for(let i =0; i <bytes.length; i++) {
+        arr[i] = bytes.charCodeAt(i);
+    }
+    let capBlob = new Blob([arr], {type:mimeType});
+	console.log(capBlob);
+	const formData = new FormData();
+	formData.append('article', "hihi");
+	formData.append('image_url', capBlob);
+	postApi.postSubmitPost(id, formData).then(() => { alert("오늘의 인증샷 제출완료!"); window.history.back(); }).catch((error) => { alert(error); window.history.back(); });
 }
+
+// const capture = (mediaStream, id) => {
+// 	const track = mediaStream.getVideoTracks()[0];
+// 	let imageCapture = new ImageCapture(track);
+// 	imageCapture.takePhoto().then((response) => {
+// 		mediaStream.getTracks().forEach(function (t) {
+// 			t.stop();
+// 		});
+// 		console.log(response)
+// 		const formData = new FormData();
+// 		// const data={
+// 		// 	article:"dfdfdf",
+// 		// 	image_url:response
+// 		// }
+// 		formData.append('article', "hihi");
+// 		formData.append('image_url', response);
+// 		postApi.postSubmitPost(id, formData).then(() => { alert("오늘의 인증샷 제출완료!"); window.history.back(); }).catch((error) => { alert(error); window.history.back(); });
+// 	});
+// }
 /*메인 함수*/
 const Camera = ({ id }) => {
 	let refCamera = useRef();
+	let refCanvas = useRef();
 	let stream;
 	useEffect(() => {
 		init(refCamera).then(response => { stream = response })
@@ -113,7 +142,8 @@ const Camera = ({ id }) => {
 			<Logo />
 		</TopContainer>
 		<Video ref={refCamera} playsInline={true} autoPlay={true} muted={true} />
-		<BottomContainer><Button onClick={() => { capture(stream, id) }} /></BottomContainer>
+		<BottomContainer><Button onClick={() => { capture(refCanvas,refCamera,stream, id) }} /></BottomContainer>
+		<canvas ref={refCanvas} style={{display:"none"}}></canvas>
 	</VideoContainer>
 	);
 }

@@ -216,7 +216,9 @@ const Presenter = () => {
           <Numberarea type="number" min={100} max={5000} placeholder="포인트를 적당하게 설정하면 더 많은 두윗러들과 함께 달릴 수 있어요!" value={num} onChange={numHandler} required />
           <br /><br /><br />
           <H2>두윗이 제안하는 챌린지의 벌금이에요!</H2>
-          <br /><InputNum disabled={true} />
+          <span>
+            인증 실패마다 산정되는 벌금은 (챌린지 참여 포인트)/(챌린지 기간) 입니다!
+          </span>
           <br /><br /><br /><br />
           <H4>- 왜 챌린지 벌금이 정해져있나요?</H4>
           <span>
