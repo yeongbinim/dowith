@@ -84,7 +84,6 @@ const init = async (refCamera) => {
 
 const capture = (refCanvas,refCamera,mediaStream, id)=>{
 	const canvas = refCanvas.current;
-	console.log(refCanvas.offsetWidth);
 	canvas.width = window.innerWidth > 500 ? "1280" : "420";
     canvas.height = "720";
 	canvas.getContext('2d').drawImage(refCamera.current,0,0);
