@@ -8,6 +8,7 @@ import ProfileCircle from "Components/ProfileCircle";
 import Helmet from "react-helmet";
 import { fadeIn } from "onLoad";
 import Loader from "Components/Loader";
+import { ReactComponent as Camera1 } from "assets/icon-camera1.svg";
 
 const H2 = styled.h2`
   position:relative;
@@ -147,6 +148,13 @@ const Profile = styled(Link)`
 `;
 
 
+const MainIco = styled(Camera1)`
+  width:10rem;
+  height:12rem;
+  transform:translate(0,-50%);
+`;
+
+
 const Presenter = ({
   user, data_todaychallenge, data_allchallenge, loading
 }) => 
@@ -183,11 +191,15 @@ const Presenter = ({
     </Section1>
     </>):
     (<>
-      <ArticleBox><div style={{padding:"3rem 3rem 5rem", position:"relative"}}><div>로그인하게 되면 더 많은 서비스를 경험하실 수 있습니다!</div><Link to="/signin" style={{position:"absolute",right:"2rem",bottom:"2rem",color:"#3d69fa"}}>로그인하러 가기</Link></div></ArticleBox><br/><br/><br/><br/><br/>
+      <div style={{display:"flex",justifyContent:"center"}}>
+        <MainIco/>
+      </div>
+      <ArticleBox><div style={{padding:"3rem 3rem 5rem", position:"relative"}}><div>로그인하게 되면 더 많은 서비스를 경험하실 수 있습니다!</div><Link to="/signin" style={{position:"absolute",right:"2rem",bottom:"2rem",color:"#3d69fa"}}>로그인하러 가기</Link></div></ArticleBox><br/><br/><br/><br/>
       <Banner contents={["함께 달릴 준비 되셨나요?","두윗과 함께 달려봐요!","달리기 전, 준비 운동 하러가기",">> 클릭시 두위 소개 페이지로 이동합니다."]}/>
     </>)}
     {/* 로그인 안한사람 */}
     
+    <br/><br/>
     <Section2>
       <ALink to="/challenge">전체보기</ALink>
       <H2>인기있는 챌린지</H2>

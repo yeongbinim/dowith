@@ -28,6 +28,7 @@ const H2 = styled.h2`
 const Container = styled.div`
   position: relative;
   padding: 2rem;
+  overflow-x: hidden;
 `;
 
 const Section = styled.section`

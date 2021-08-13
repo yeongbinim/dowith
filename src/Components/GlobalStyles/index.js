@@ -14,7 +14,8 @@ const globalStyles = createGlobalStyle`
 	}
 	body{
 		overflow-x:hidden;
-		font-family:--apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-family: Pretendard;
+		font-style: normal;
 	}
 	#root{
 		font-size:16px;

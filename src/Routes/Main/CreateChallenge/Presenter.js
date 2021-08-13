@@ -8,6 +8,7 @@ import ImageSelect from "Components/ImageSelect";
 import { ReactComponent as Image } from "assets/icon-example.svg";
 import { postApi } from "api";
 
+
 const H2 = styled.h2`
   font-size: ${({ theme: { fontSizes } }) => fontSizes.h3};
   line-height: 1.3em;
@@ -32,6 +33,7 @@ const H4 = styled.h4`
 
 const Container = styled.div`
   padding: 2rem;
+  overflow-x: hidden;
 `;
 
 const FormSection = styled.form`

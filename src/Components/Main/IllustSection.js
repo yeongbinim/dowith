@@ -39,6 +39,7 @@ const IllustSection = styled.div`
   flex-direction: column;
   border-bottom: 1px solid #eeeeee;
   position: relative;
+  overflow-x: hidden;
   animation: ${fadeIn} 1s linear alternate both;
 `;
 
@@ -79,7 +80,7 @@ const ImgBox = ({
 }) => {
   return (
     <IllustSection>
-      {reverse ? <Trop /> : create ? <CreateBlock /> : <Msg />}
+      {reverse ? <Trop /> : (create ? <CreateBlock /> : <Msg />)}
       <span style={{ fontSize: "1.6rem", fontWeight: "400" }}>
         {contents[0]}
       </span>
