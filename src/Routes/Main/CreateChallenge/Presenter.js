@@ -1,11 +1,11 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import ChallengeButton from "Components/ChallengeButton";
 import IllustSection from "Components/Main/IllustSection";
 import Textarea from "Components/Textarea";
 import ImageSelect from "Components/ImageSelect";
-import { ReactComponent as Image } from "assets/icon-example.svg";
+import Image from "assets/icon-example.png";
 import { postApi } from "api";
 
 const H2 = styled.h2`
@@ -83,7 +83,7 @@ const DateInput = styled.input`
   padding: 2rem;
   border: 1px solid #c1c1cc;
   border-radius: 1rem;
-  font-size:${props=>props.theme.fontSizes.normal};
+  font-size:${props => props.theme.fontSizes.normal};
   &::-webkit-calendar-picker-indicator {
     background: transparent;
     bottom: 0;
@@ -109,7 +109,7 @@ const Numberarea = styled.input`
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
-  font-size:${props=>props.theme.fontSizes.normal};
+  font-size:${props => props.theme.fontSizes.normal};
   ::placeholder {
     color: #c1c1c1;
   }
@@ -164,86 +164,87 @@ const Presenter = () => {
     formData.append('start_date', date1);
     formData.append('end_date', date2);
     formData.append('thumbnail_url', img);
-    postApi.postCreateChallenge(formData).then((response)=>{alert("챌린지가 개설되었습니다!"); window.history.back();}).catch(()=>{alert("오류")});
+    postApi.postCreateChallenge(formData).then((response) => { alert("챌린지가 개설되었습니다!"); window.history.back(); }).catch(() => { alert("오류") });
   };
 
 
   return (
-  <>
-    <Helmet>
-      <title>Create | Dowith</title>
-    </Helmet>
-    <IllustSection
-      reverse={false}
-      create={true}
-      contents={[
-        null,
-        "챌린지 트랙 만들기",
-        "두윗러들과 함께 하고 싶은 챌린지 트랙을 직접 만들어보세요!",
-      ]}
-    />
-    <Container>
-      <FormSection onSubmit={submitHandler}>
-        <H2>챌린지 대표 이미지 설정하기</H2>
-        <ImageSelect onChange={imgHandler}/>
-        <br /><br /><br />
-        <H2>챌린지의 이름은 무엇인가요?</H2>
-        <Textarea placeholder = "하루에 운동 20분 하기 등 챌린지를 잘 나타내는 이름을 지어주세요!" value={title} onChange={titleHandler} required={true}/>
-        <br /><br /><br />
-        <H2>챌린지를 한 줄로 소개해주세요!</H2>
-        <Textarea placeholder = "건강한 하루를 위해 매일 매일 운동 20분 하기!" value={body} onChange={bodyHandler} required={false}/>
-        <br /><br /><br />
-        <H2>챌린지의 기간을 설정해주세요</H2>
-        <br />
-        <DateSection>
-          
-          <Ul>
-            <Li>
-              <span>챌린지 시작 날짜</span>
-              <br />
-              <DateInput type="date" value={date1} onChange={date1Handler} required/>
-            </Li>
-            <Li>
-              <span>챌린지 끝 날짜</span>
-              <br />
-              <DateInput type="date" value={date2} onChange={date2Handler} required/>
-            </Li>
-          </Ul>
-        </DateSection>
-        <H2>챌린지를 참여하기 위한 포인트를 설정해주세요</H2>
-        <Numberarea type="number" min={100} max={5000} placeholder="포인트를 적당하게 설정하면 더 많은 두윗러들과 함께 달릴 수 있어요!" value={num} onChange={numHandler} required/>
-        <br /><br /><br />
-        <H2>두윗이 제안하는 챌린지의 벌금이에요!</H2>
-        <br /><InputNum disabled={true}/>
-        <br /><br /><br /><br />
-        <H4>- 왜 챌린지 벌금이 정해져있나요?</H4>
-        <span>
-          챌린지 기간과 참여 포인트를 설정하면 그에 맞는 적절한 벌금 설정을
-          도와드려요. <br />
-          과도한 벌금은 사기를 떨어뜨리고, 너무 적은 벌금은 동기 부여를 약하게
-          만들 수 있어요!
-        </span>
-        <br/>
-        <br/>
-        <br/>
-        <H2>챌린지 장은 어떤 일을 하나요?</H2>
-        <span>ex) 플라스틱 컵 대신 텀블러 사용하기 챌린지</span>
-        <Image width="44rem" height="20rem" z-index="-1" />
-        <H4>- 챌린지에 올라오는 인증사진 살펴보기</H4>
-        <span>
-          해당 챌린지에 적합하지 않는 사진이 올라오면 인증을 무효처리할 수 있어요!
-        </span>
-        <div style={{height:'10rem'}}></div>
-        <ChallengeButton
-          content="챌린지 개설하기"
-          status={true}
-          type="submit"
-          clickEvent={() => {}}
-        />{" "}
-      </FormSection>
-    </Container>
-  </>
-)};
+    <>
+      <Helmet>
+        <title>Create | Dowith</title>
+      </Helmet>
+      <IllustSection
+        reverse={false}
+        create={true}
+        contents={[
+          null,
+          "챌린지 트랙 만들기",
+          "두윗러들과 함께 하고 싶은 챌린지 트랙을 직접 만들어보세요!",
+        ]}
+      />
+      <Container>
+        <FormSection onSubmit={submitHandler}>
+          <H2>챌린지 대표 이미지 설정하기</H2>
+          <ImageSelect onChange={imgHandler} />
+          <br /><br /><br />
+          <H2>챌린지의 이름은 무엇인가요?</H2>
+          <Textarea placeholder="하루에 운동 20분 하기 등 챌린지를 잘 나타내는 이름을 지어주세요!" value={title} onChange={titleHandler} required={true} />
+          <br /><br /><br />
+          <H2>챌린지를 한 줄로 소개해주세요!</H2>
+          <Textarea placeholder="건강한 하루를 위해 매일 매일 운동 20분 하기!" value={body} onChange={bodyHandler} required={false} />
+          <br /><br /><br />
+          <H2>챌린지의 기간을 설정해주세요</H2>
+          <br />
+          <DateSection>
+
+            <Ul>
+              <Li>
+                <span>챌린지 시작 날짜</span>
+                <br />
+                <DateInput type="date" value={date1} onChange={date1Handler} required />
+              </Li>
+              <Li>
+                <span>챌린지 끝 날짜</span>
+                <br />
+                <DateInput type="date" value={date2} onChange={date2Handler} required />
+              </Li>
+            </Ul>
+          </DateSection>
+          <H2>챌린지를 참여하기 위한 포인트를 설정해주세요</H2>
+          <Numberarea type="number" min={100} max={5000} placeholder="포인트를 적당하게 설정하면 더 많은 두윗러들과 함께 달릴 수 있어요!" value={num} onChange={numHandler} required />
+          <br /><br /><br />
+          <H2>두윗이 제안하는 챌린지의 벌금이에요!</H2>
+          <br /><InputNum disabled={true} />
+          <br /><br /><br /><br />
+          <H4>- 왜 챌린지 벌금이 정해져있나요?</H4>
+          <span>
+            챌린지 기간과 참여 포인트를 설정하면 그에 맞는 적절한 벌금 설정을
+            도와드려요. <br />
+            과도한 벌금은 사기를 떨어뜨리고, 너무 적은 벌금은 동기 부여를 약하게
+            만들 수 있어요!
+          </span>
+          <br />
+          <br />
+          <br />
+          <H2>챌린지 장은 어떤 일을 하나요?</H2>
+          <span>ex) 플라스틱 컵 대신 텀블러 사용하기 챌린지</span>
+          <img src={Image} width="100%" height="30%" z-index="-1" />
+          <H4>- 챌린지에 올라오는 인증사진 살펴보기</H4>
+          <span>
+            해당 챌린지에 적합하지 않는 사진이 올라오면 인증을 무효처리할 수 있어요!
+          </span>
+          <div style={{ height: '10rem' }}></div>
+          <ChallengeButton
+            content="챌린지 개설하기"
+            status={true}
+            type="submit"
+            clickEvent={() => { }}
+          />{" "}
+        </FormSection>
+      </Container>
+    </>
+  )
+};
 
 // Presenter.propTypes = {
 // };
