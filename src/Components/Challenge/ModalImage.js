@@ -34,8 +34,8 @@ const Container = styled.div`
 	} */
 `;
 const Img = styled.img`
-	width:31vw;
-	height:31vw;
+	width:30.8vw;
+	height:30.8vw;
 	object-fit:cover;
 `;
 

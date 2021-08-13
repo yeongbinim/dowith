@@ -177,7 +177,7 @@ const Presenter = ({
       <img src={require("assets/Introduce/5.png").default} style={{maxWidth:"500px",width:"100%",borderRadius:"15px"}} alt="img"/><br/>
       </div>
       <br/><br/><br/><br/>
-      <ArticleBox><div style={{padding:"3rem 3rem 5rem", position:"relative"}}><div><br/>로그인이 필요합니다. <br/><br/>로그인 후 두윗의 모든 서비스를 함께해요!<br/></div><Link to="/signin" style={{position:"absolute",right:"2rem",bottom:"2rem",color:"#3d69fa"}}>로그인하러 가기</Link></div></ArticleBox><br/><br/><br/><br/>
+      <ArticleBox><div style={{padding:"3rem 3rem 5rem", position:"relative", fontSize:"1.5rem"}}><div><br/>로그인이 필요합니다. <br/><br/>로그인 후 두윗의 모든 서비스를 함께해요!<br/></div><Link to="/signin" style={{position:"absolute",right:"2rem",bottom:"2rem",color:"#3d69fa"}}>로그인하러 가기</Link></div></ArticleBox><br/><br/><br/><br/>
       <Banner contents={["달리기 전, 준비 운동 하러가기","두윗에 대해 알아볼까요?","",">> 클릭시 두윗 소개 페이지로 이동합니다."]}/>
     </>)}
     {/* 로그인 안한사람 */}
