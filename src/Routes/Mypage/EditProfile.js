@@ -19,16 +19,6 @@ const H3 = styled.h2`
 `;
 
 
-const H4 = styled.h4`
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.h4};
-  line-height: 1.3em;
-  font-weight: 400;
-  line-height: 2.8rem;
-  margin-top: 4rem;
-  text-align: center;
-  color: #3c68fa;
-`;
-
 const Background = styled.div`
   background-color: white;
   width: 100%;
@@ -58,14 +48,6 @@ const InputContainer = styled.div`
   align-items:center;
 `;
 
-const ProfileImage = styled.div`
-  position: relative;
-  width: 15rem;
-  height: 15rem;
-  border-radius: 15rem;
-  background-color: black;
-  margin-bottom: 1rem;
-`;
 
 const TextContainer = styled.div`
   width: 80%;

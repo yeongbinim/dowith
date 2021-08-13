@@ -32,7 +32,7 @@ const Container = ({user}) => {
   };
   useEffect(()=>mount(), [user]);
   let code = new URL(window.location.href).searchParams.get("code");
-  if(code && temp == 0){temp=1; signIn.onLogin();}
+  if(code && temp === 0){temp=1; signIn.onLogin();}
   return (
 	error? `${error}`:
     <><Header user={user}/><Presenter data_todaychallenge={ChallengeToday} data_allchallenge={Challenge} loading={loading} user={user}/></>

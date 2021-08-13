@@ -2,7 +2,7 @@ import axios from "axios";
 
 // const JWT_EXPIRY_TIME = 24 * 3600 * 1000; // 만료 시간 (24시간 밀리 초로 표현)
 
-axios.defaults.baseURL = "http://10.0.23.100:8000";
+axios.defaults.baseURL = "https://dowith-api.likelion.app";
 // const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46ZG93aXRoIiwic3ViIjoiMSIsImlhdCI6MTYyODcwNTA5NiwiZXhwIjoxNjI4NzA4Njk2LCJhdWQiOlsidXJuOmRvd2l0aDp1c2VyIl0sInR5cGUiOiJhY2Nlc3MiLCJwcm92aWRlciI6ImFkbWluIiwibmlja25hbWUiOiIxIn0.mG4R_dVzSeKhihnux5QrpRV2l0yuUAfIOVHaO31sUkY'
 const token = localStorage.getItem('access');
 token ? axios.defaults.headers.common['Authorization'] = `Bearer ${token}` : axios.defaults.headers.common['Authorization'] = `Bearer`;

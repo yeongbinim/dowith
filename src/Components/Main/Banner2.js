@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { ReactComponent as Money } from "assets/icon-money.svg";
 import Money2 from "assets/icon-money2.png";
 import { fadeIn } from "onLoad";
 
@@ -38,19 +37,6 @@ const Textbox = styled.div`
     margin-bottom: 1.2em;
   }
 `;
-
-const SvgMoney = styled(Money)`
-  position: absolute;
-  z-index: 0;
-  right: 5%;
-  width: 10rem;
-  height: 10rem;
-  top: 50%;
-  transform: translate(0, -50%);
-`;
-// const TextBold = styled.span`
-//   font-weight: bold;
-// `;
 
 const Banner = ({ contents }) => {
   return (
