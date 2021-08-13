@@ -64,8 +64,8 @@ const CreateBlock = styled(Create)`
   position: absolute;
   right: 0rem;
   bottom: 0rem;
-  width: 30rem;
-  height: 30rem;
+  width: 21rem;
+  height: 21rem;
   z-index: -1;
 `;
 

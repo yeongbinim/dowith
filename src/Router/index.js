@@ -21,6 +21,7 @@ import Mypage from "Routes/Mypage";
 import Kakao from "Routes/Kakao";
 import Scroll from "./Scroll";
 import EditProfile from "Routes/Mypage/EditProfile";
+import Start from "Routes/Start";
 
 import {useState, useEffect} from "react";
 import { getApi } from "api";
@@ -43,6 +44,7 @@ const RouterC = () => {
 		<Back/>
 		<Switch>
 			<Route path="/" exact={true} render={()=><Home user={user}/>} />
+			<Route path="/start" exact={true} render={() => <Start />} />
 			<Route path="/certify/:id" render={({match:{params:{id}}})=><Certify user={user} id={id} />} />
 			<Route path="/mypage" exact={true} render={()=><Mypage user={user}/>} />
 			<Route path="/introduce" render={()=><Introduce/>} />

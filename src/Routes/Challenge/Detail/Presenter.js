@@ -62,7 +62,7 @@ const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user
     return(<><Helmet><title>Loading | Dowith</title></Helmet><Loader /></>);
   }else{
     let temp = setTemp(data_challenge.challenge_status, user!==null, data_allverify!==null, data_myverify);
-  const buttonCondition = [{
+    const buttonCondition = [{
       status:false,
       content:`챌린지 시작까지 D-${data_challenge.days_left}`,
       url:null,
@@ -104,14 +104,10 @@ const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user
       <Helmet><title>Challenge | Dowith</title></Helmet>
       <BodyBlackout isVisible={isVisible} onSetIsVisible={onSetIsVisible} />
       <ChallengeContainer data_challenge={data_challenge} temp={temp}/>
-      {temp===1 || temp === 2 || temp === 6? (<>
+      {temp===1 || temp === 2 || temp === 6? <>
         <Modal isMaster={user.id === data_challenge.captain} isVisible={isVisible} onSetIsVisible={onSetIsVisible} id={imageId} list={data_allverify} />
         <MyverifyContainer onSetIsVisible={onSetIsVisible} setId={setId} data_myverify={data_myverify} image_url={user.image_url}/><AllverifyContainer onSetIsVisible={onSetIsVisible} setId={setId} data_allverify={data_allverify}/>
-      </>):(temp === 4? 
-      <>
-        <Modal isMaster={user.id === data_challenge.captain} isVisible={isVisible} onSetIsVisible={onSetIsVisible} id={imageId} list={data_allverify} />
-        <AllverifyContainer onSetIsVisible={onSetIsVisible} setId={setId} data_allverify={data_allverify}/>
-      </> : <></>)}
+        </> : <></>}
       <ChallengeButton {...buttonCondition[temp]}/>
       <div style={{height:'10rem'}}></div>
     </>
