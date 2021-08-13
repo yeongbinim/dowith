@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { ReactComponent as Block } from "assets/icon-block.svg";
-import { ReactComponent as Fire } from "assets/icon-fire.svg";
+import { ReactComponent as Money } from "assets/icon-money.svg";
+import Money2 from "assets/icon-money2.png";
 import { fadeIn } from "onLoad";
 
 const BannerContainer = styled(Link)`
@@ -14,16 +14,15 @@ const BannerContainer = styled(Link)`
 `;
 
 const TextContainer = styled.div`
-  background-color: ${(props) =>
-    props.reverse ? "#E4E9FB" : props.theme.colors.main};
+  background-color: none;
   padding: 2rem 3rem;
   min-height: 10rem;
   font-size: 1.4rem;
   font-weight: 400;
   height: 100%;
-  border: 1px solid ${(props) => (props.reverse ? "#E4E9FB" : "none")};
-  box-shadow: 0 5px 10px ${(props) => (props.reverse ? "#cccccc" : "none")};
-  border-radius: 8px;
+  border: 1px solid #e4e9fb;
+  box-shadow: 0 5px 10px #cccccc;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,7 +31,7 @@ const TextContainer = styled.div`
 const Textbox = styled.div`
   z-index: 1;
   position: relative;
-  color: ${(props) => (props.reverse ? "black" : "#E4E9FB")};
+  color: #000000;
   display: flex;
   flex-direction: column;
   & > span:not(:last-child) {
@@ -40,7 +39,7 @@ const Textbox = styled.div`
   }
 `;
 
-const SvgFire = styled(Fire)`
+const SvgMoney = styled(Money)`
   position: absolute;
   z-index: 0;
   right: 5%;
@@ -49,41 +48,40 @@ const SvgFire = styled(Fire)`
   top: 50%;
   transform: translate(0, -50%);
 `;
-
-const SvgBlock = styled(Block)`
-  position: absolute;
-  z-index: 0;
-  right: 5%;
-  width: 10rem;
-  height: 10rem;
-  top: 53%;
-  transform: translate(0, -50%);
-`;
-
 // const TextBold = styled.span`
 //   font-weight: bold;
 // `;
 
-const Banner = ({ reverse, contents }) => {
+const Banner = ({ contents }) => {
   return (
-    <BannerContainer to={reverse ? "/createchallenge" : "/introduce"}>
-      <TextContainer reverse={reverse}>
-        <Textbox reverse={reverse}>
-          <span style={{ fontSize: "1.6rem", fontWeight: "400" }}>
+    <BannerContainer>
+      <TextContainer>
+        <Textbox>
+          <span
+            style={{ fontSize: "1.6rem", fontWeight: "600", color: "#3c68fa" }}
+          >
             {contents[0]}
           </span>
-          <span style={{ fontSize: "1.9rem", fontWeight: "600" }}>
+          <span style={{ fontSize: "1.4rem", fontWeight: "500" }}>
             {contents[1]}
           </span>
           <br />
-          <span style={{ fontSize: "1.4rem", fontWeight: "400" }}>
+          <span
+            style={{ fontSize: "1.6rem", fontWeight: "600", color: "#979797" }}
+          >
             {contents[2]}
           </span>
-          <span style={{ fontSize: "1.4rem", fontWeight: "400" }}>
+          <span style={{ fontSize: "1.4rem", fontWeight: "500" }}>
             {contents[3]}
           </span>
         </Textbox>
-        {reverse ? <SvgBlock /> : <SvgFire />}
+        <img
+          src={Money2}
+          width="120rem"
+          height="120rem"
+          max-height="500%"
+          alt="Money2"
+        />
       </TextContainer>
     </BannerContainer>
   );
