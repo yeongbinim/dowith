@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "assets/icon-logo.png";
-import Kakao from "assets/kakao_login_medium_narrow.png";
+import Kakao from "assets/kakao_login_large_narrow.png";
 
 // const CLIENT_ID = "794a04747a9ab3b3b2ca7a39c40c6c0f";
 const CLIENT_ID = "2589e2db71042b3e03d86f96e07aec79";
@@ -21,7 +21,7 @@ const Container = styled.div`
   height: 100%;
   position: relative;
   margin: auto;
-  max-width:600px;
+  max-width: 600px;
 `;
 
 const Background = styled.div`
@@ -51,10 +51,10 @@ const LogoSection = styled.div`
 `;
 
 const KakaoSection = styled.div`
-  width: 50rem;
-  bottom:30px;
-  transform:translate(-50%,0);
-  left:50%;
+  width: 60rem;
+  bottom: 60px;
+  transform: translate(-50%, 0);
+  left: 50%;
   position: fixed;
 
   cursor: pointer;
@@ -62,9 +62,8 @@ const KakaoSection = styled.div`
 
 const KakaoLogin = () => (
   <>
-  <Background>
-    <Container>
-      
+    <Background>
+      <Container>
         <Section>
           <LogoSection>
             <div>
