@@ -6,26 +6,30 @@ import logo from "assets/dowith-motion.gif";
 const Background = styled.div`
   background-color: #000;
   width: 100%;
+  height:100vh;
   position: absolute;
   left: 0;
   top: 0;
-  z-index: -1;
+  z-index: 2000;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  img{
+	width:80%;
+  	max-width:800px;
+  }
 `;
 
-const Container = styled.div`
-  padding: 3rem;
-  position: relative;
-  margin: auto;
-`;
-
-const Presenter = () => (
+const Presenter = () => {
+ 
   <>
-    <Background />
-    <Container>
+    <Background>
       <img src={logo} alt="loading logo" />
-    </Container>
+	</Background>
   </>
-);
+
+};
 
 // Presenter.propTypes = {
 // };

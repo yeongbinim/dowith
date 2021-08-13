@@ -3,7 +3,7 @@ import {useState, useEffect} from "react";
 import { getApi } from "api";
 import Presenter from "./Presenter";
 
-const Container = ({user}) => {
+const Container = ({isLogin}) => {
   const [Challenge, setChallenge] = useState(null);
   const [error, seterror] = useState(null);
   const [loading, setloading] = useState(true);
@@ -17,10 +17,10 @@ const Container = ({user}) => {
 		setloading(false);
     }
   };
-  useEffect(() => mount(), [user]);
+  useEffect(() => mount(), []);
   return (
 	error? `${error}`:
-  <Presenter isLogin={user === null} data_allchallenge={Challenge} loading={loading}/>
+  <Presenter isLogin= {isLogin} data_allchallenge={Challenge} loading={loading}/>
   );
 }
 export default Container;

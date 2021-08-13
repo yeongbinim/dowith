@@ -49,7 +49,7 @@ const RouterC = () => {
 			<Route path="/mypage" exact={true} render={()=><Mypage user={user}/>} />
 			<Route path="/introduce" render={()=><Introduce/>} />
 			<Route path="/createchallenge" render={()=><CreateChallenge user={user}/>} />
-			<Route path="/challenge" exact={true} render={()=><Home2/>}/>
+			<Route path="/challenge" exact={true} render={()=><Home2 isLogin={user!==null}/>}/>
 			<Route path="/mypage/edit" exact={true} render={()=><EditProfile/>}/>
 			<Route path="/signin" render={()=><Kakao user={user}/>} />
 			{/* <Route path="/signup" render={()=><Signup user={user}/>} />
