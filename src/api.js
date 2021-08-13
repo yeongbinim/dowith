@@ -47,11 +47,27 @@ export const signIn = {
 	logout : async () => {
 		const refresh = localStorage.getItem('refresh');
 		try {
-			await axios.post("account/logout",{refreshToken:refresh});
+			try{
+				await axios.post("account/logout",{refreshToken:refresh});
+			}
+			catch(e){
+				console.log(e);
+			}
+			try{
+				localStorage.removeItem('refresh');
+			}catch(e){
+				console.log(e);
+			}
+			try{
+				localStorage.removeItem('refresh');
+			}catch(e){
+				console.log(e);
+				localStorage.removeItem('access');
+			}
+		}catch(e){
+			console.log(e);
 			localStorage.removeItem('refresh');
 			localStorage.removeItem('access');
-		}catch{
-			alert("에러");
 		}
 	},
 }

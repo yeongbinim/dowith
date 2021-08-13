@@ -32,7 +32,6 @@ loading ?
     (<><Helmet><title>Loading | Dowith</title></Helmet><Loader /></>) : 
     (
       <>
-        {console.log(dataRank)}
         <Helmet><title>Rank | Dowith</title></Helmet>
         <IllustSection reverse={true} contents={["오늘 나는 몇등?","우리 챌린지의 챌린지 현황을", "한눈에 확인해보세요"]}/>
         {dataRank.my ? <Div my={true} key={0}>

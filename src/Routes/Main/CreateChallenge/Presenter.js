@@ -33,6 +33,7 @@ const H4 = styled.h4`
 
 const Container = styled.div`
   padding: 2rem;
+  width:100%;
   overflow-x: hidden;
 `;
 

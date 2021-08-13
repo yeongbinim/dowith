@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { postApi } from "api";
 import { ReactComponent as Camera1 } from "assets/icon-camera1.svg";
@@ -57,14 +57,11 @@ const BottomContainer = styled.div`
 
 /*초기 카메라 설정*/
 const constraints = {
-	audio: {
-		echoCancellation: {
-			exact: false
-		}
-	},
+	audio: true,
 	video: {
-		width: 500,
-		height: 500
+		width: { ideal: 1280 },
+		height: { ideal: 720 },
+		facingMode: "environment"
 	}
 };
 const handleSuccess = (stream, refCamera) => {
@@ -73,13 +70,13 @@ const handleSuccess = (stream, refCamera) => {
 	refCamera.current.srcObject = stream;
 };
 
-const init = async (refCamera) =>{
+const init = async (refCamera) => {
 	let stream;
 	try {
-	  stream = await window.navigator.mediaDevices.getUserMedia(constraints);
-	  handleSuccess(stream, refCamera);
+		stream = await window.navigator.mediaDevices.getUserMedia(constraints);
+		handleSuccess(stream, refCamera);
 	} catch (e) {
-	  console.error('navigator.getUserMedia error:', e);
+		console.error('navigator.getUserMedia error:', e);
 	}
 	return stream;
 };
@@ -89,35 +86,35 @@ const init = async (refCamera) =>{
 const capture = (mediaStream, id) => {
 	const track = mediaStream.getVideoTracks()[0];
 	let imageCapture = new ImageCapture(track);
-	imageCapture.takePhoto().then((response)=>{
+	imageCapture.takePhoto().then((response) => {
 		console.log(response)
 		// const objectURL = URL.createObjectURL(response);
 		const formData = new FormData();
 		formData.append('article', "hihi");
 		formData.append('image_url', response);
-		postApi.postSubmitPost(id,formData).then(()=>{alert("오늘의 인증샷 제출완료!"); window.history.back();}).catch((error)=>{alert(error);window.history.back();});
+		postApi.postSubmitPost(id, formData).then(() => { alert("오늘의 인증샷 제출완료!"); window.history.back(); }).catch((error) => { alert(error); window.history.back(); });
 	})
 }
 /*메인 함수*/
-const Camera = ({id}) =>{
+const Camera = ({ id }) => {
 	let refCamera = useRef();
 	let stream;
-	useEffect(()=>{
-		init(refCamera).then(response => {stream=response})
-		return(()=>{
-				stream.getTracks().forEach(function(track) {
+	useEffect(() => {
+		init(refCamera).then(response => { stream = response })
+		return (() => {
+			stream.getTracks().forEach(function (track) {
 				track.stop();
-		  		});
-	  		});
-		},[]);
+			});
+		});
+	}, []);
 
 	return (<VideoContainer>
-			<TopContainer>
-				<Logo/>
-			</TopContainer>
-			<Video ref={refCamera} playsInline={true} autoPlay={true} muted={true}/>
-			<BottomContainer><Button onClick={()=>{capture(stream,id)}}/></BottomContainer>
-		</VideoContainer>
+		<TopContainer>
+			<Logo />
+		</TopContainer>
+		<Video ref={refCamera} playsInline={true} autoPlay={true} muted={true} />
+		<BottomContainer><Button onClick={() => { capture(stream, id) }} /></BottomContainer>
+	</VideoContainer>
 	);
 }
 
