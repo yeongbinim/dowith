@@ -14,14 +14,19 @@ import Modal from './Modal/Modal';
 // 3 : 내 챌린지x [시작전]
 // 4 : 내 챌린지x [진행중, 완료]
 // 5 : 로그인 안됨
-const setTemp = (status, isLogin, isMy) =>{
+// 6 : 오늘은 이미 인증됨
+
+const setTemp = (status, isLogin, isMy, data_myverify) =>{
   let temp;
   if(isLogin){
     if(isMy){
       if(status === "시작 전"){
         temp = 0;
       }else if(status === "진행 중"){
-        temp = 1;
+        if(data_myverify.is_today_verificated){
+          temp=6;
+        }
+        else{temp = 1};
       }else{
         temp = 2;
       }
@@ -56,7 +61,7 @@ const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user
   if (loading){
     return(<><Helmet><title>Loading | Dowith</title></Helmet><Loader /></>);
   }else{
-    let temp = setTemp(data_challenge.challenge_status, user!==null, data_allverify!==null);
+    let temp = setTemp(data_challenge.challenge_status, user!==null, data_allverify!==null, data_myverify);
   const buttonCondition = [{
       status:false,
       content:`챌린지 시작까지 D-${data_challenge.days_left}`,
@@ -87,6 +92,11 @@ const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user
       content:`로그인 후에 이용해 주세요`,
       url:null,
       clickEvent:null,
+    },{
+      status:false,
+      content: "이미 인증샷을 찍었어요",
+      url:null,
+      clickEvent:null,
     }
   ]
   return (
@@ -94,7 +104,7 @@ const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user
       <Helmet><title>Challenge | Dowith</title></Helmet>
       <BodyBlackout isVisible={isVisible} onSetIsVisible={onSetIsVisible} />
       <ChallengeContainer data_challenge={data_challenge} temp={temp}/>
-      {temp===1 || temp === 2? (<>
+      {temp===1 || temp === 2 || temp === 6? (<>
         <Modal isMaster={user.id === data_challenge.captain} isVisible={isVisible} onSetIsVisible={onSetIsVisible} id={imageId} list={data_allverify} />
         <MyverifyContainer onSetIsVisible={onSetIsVisible} setId={setId} data_myverify={data_myverify} image_url={user.image_url}/><AllverifyContainer onSetIsVisible={onSetIsVisible} setId={setId} data_allverify={data_allverify}/>
       </>):(<></>)}

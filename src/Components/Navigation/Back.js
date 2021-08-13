@@ -13,9 +13,9 @@ const BackButton = styled.div`
 		content:"";
 		width:1.8rem;
 		height:1.8rem;
-		border-left: 0.5rem solid ${props=> props.theme.colors.main};
+		border-left: 0.5rem solid black;
 		transform:rotate(45deg);
-		border-bottom: 0.5rem solid ${props=> props.theme.colors.main};
+		border-bottom: 0.5rem solid black;
 	}
 `;
 

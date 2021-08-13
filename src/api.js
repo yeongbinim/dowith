@@ -2,7 +2,7 @@ import axios from "axios";
 
 // const JWT_EXPIRY_TIME = 24 * 3600 * 1000; // 만료 시간 (24시간 밀리 초로 표현)
 
-axios.defaults.baseURL = "http://3.36.83.46:8000";
+axios.defaults.baseURL = "http://10.0.23.100:8000";
 // const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46ZG93aXRoIiwic3ViIjoiMSIsImlhdCI6MTYyODcwNTA5NiwiZXhwIjoxNjI4NzA4Njk2LCJhdWQiOlsidXJuOmRvd2l0aDp1c2VyIl0sInR5cGUiOiJhY2Nlc3MiLCJwcm92aWRlciI6ImFkbWluIiwibmlja25hbWUiOiIxIn0.mG4R_dVzSeKhihnux5QrpRV2l0yuUAfIOVHaO31sUkY'
 const token = localStorage.getItem('access');
 token ? axios.defaults.headers.common['Authorization'] = `Bearer ${token}` : axios.defaults.headers.common['Authorization'] = `Bearer`;
@@ -89,4 +89,6 @@ export const postApi ={
 	postJoinChallenge : (challenge_id) => axios.post(`/challenge/${challenge_id}`),
 	// 챌린지 인증샷 보내기
 	postSubmitPost : (challenge_id,data) => axios.post(`/verification/create/${challenge_id}`,data),
+
+	putEditProfile : (data) => axios.put("/account/user",data),
 }

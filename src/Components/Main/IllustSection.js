@@ -1,9 +1,35 @@
 import React from "react";
-import styled from "styled-components";
+import styled,{keyframes} from "styled-components";
 import { ReactComponent as Message } from "assets/icon-message.svg";
 import { ReactComponent as Tro } from "assets/icon-tro.svg";
-import { ReactComponent as Create } from "assets/icon-create.svg";
+import { ReactComponent as Create } from "assets/icon-block.svg";
 import { fadeIn } from "onLoad";
+
+
+export const moveRoad = keyframes`
+  0% {right:-100%}
+  100% {right:0}
+`;
+
+const Road = styled.div`
+	position:absolute;
+	width:100%;
+	bottom:0;
+	right:0;
+	z-index:-2;
+	height:7rem;
+  background: linear-gradient(to right, rgba(60, 104, 250, 0), rgba(60, 104, 250,1));
+	animation: ${moveRoad} 1s linear alternate both;
+	overflow:visible;
+	&>div{
+		position:absolute;
+		bottom:50%;
+		width:300vw;
+		left:-100%;
+		height:0.5rem;
+		background-color: white;
+	}
+`;
 
 const IllustSection = styled.div`
   padding: 5rem;
@@ -37,7 +63,7 @@ const CreateBlock = styled(Create)`
   position: absolute;
   right: 0rem;
   bottom: 0rem;
-  width: 50rem;
+  width: 30rem;
   height: 30rem;
   z-index: -1;
 `;
@@ -63,6 +89,7 @@ const ImgBox = ({
       </span>
       <br />
       <span style={{ fontSize: "2rem", fontWeight: "400" }}>{contents[2]}</span>
+      <Road><div></div></Road>
     </IllustSection>
   );
 };

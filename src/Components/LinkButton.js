@@ -12,7 +12,7 @@ const ButtonContainer = styled(Link)`
   z-index: 1;
   margin-bottom: 3rem;
   height: 6rem;
-  width: 80%;
+  width: 100%;
   text-align: center;
   display: block;
   justify-content: center;
@@ -30,8 +30,9 @@ const TextContainer = styled.div`
   padding: 1.5rem 3rem;
   font-weight: 400;
   height: 100%;
+  display:flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const LinkButton = ({ contents, url }) => {

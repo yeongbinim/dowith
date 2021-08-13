@@ -1,6 +1,5 @@
-import React, { setState } from "react";
-import styled from "styled-components";
-import axios, { post } from "axios";
+import React from "react";
+import { post } from "axios";
 
 // const ImgSelect = styled.div`
 //   background-color: none;
@@ -10,22 +9,6 @@ import axios, { post } from "axios";
 //   margin-bottom: 3rem;
 // `;
 
-const SelectBtn = styled.button`
-  width: 10rem;
-  height: 3rem;
-  margin: auto;
-  border: 1px solid #3c68fa;
-  background-color: #fff;
-  border-radius: 3rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #3c68fa;
-  cursor: pointer;
-  &:hover {
-    background-color: #3c68fa;
-    color: #fff;
-  }
-`;
 
 class ImageSelect extends React.Component {
   constructor(props) {
@@ -66,7 +49,7 @@ class ImageSelect extends React.Component {
     let imagePreview = null;
     if (this.state.file !== "") {
       imagePreview = (
-        <img className="imagePreview" src={this.state.imagePreviewUrl} style={{width:"50rem",maxWidth:"90%"}}></img>
+        <img className="imagePreview" src={this.state.imagePreviewUrl} style={{width:"50rem",maxWidth:"90%"}} alt="img_preview"/>
       );
     }
 

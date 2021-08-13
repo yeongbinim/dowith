@@ -103,7 +103,7 @@ export const MyverifyContainer = ({data_myverify:{
 		<br/>
 		<PhotoContainer>
 			<PhotoBox>
-				{verifications.map(({id, created_at,file_url,article,is_verificated})=><ModalImage id={id} setId={setId} onSetIsVisible={onSetIsVisible} key={id} created_at={created_at} article={article} is_verificated={is_verificated} file_url={file_url}/>)}
+				{verifications.map(({id, created_at,image_url,article,is_verificated})=><ModalImage id={id} setId={setId} onSetIsVisible={onSetIsVisible} key={id} created_at={created_at} article={article} is_verificated={is_verificated} image_url={image_url}/>)}
 				<Dummy/>
 			</PhotoBox>
 		</PhotoContainer>
@@ -115,7 +115,7 @@ export const AllverifyContainer = ({data_allverify,setId,onSetIsVisible}) => (
 		<H4>인증샷 전체보기</H4>
 		<br/>
 		<ListBox>
-			{data_allverify.map(({id, created_at,file_url,article,is_verificated})=><ModalImage id={id} setId={setId} onSetIsVisible={onSetIsVisible} key={id} created_at={created_at} article={article} is_verificated={is_verificated} file_url={file_url}/>)}
+			{data_allverify.map(({id, created_at,image_url,article,is_verificated})=><ModalImage id={id} setId={setId} onSetIsVisible={onSetIsVisible} key={id} created_at={created_at} article={article} is_verificated={is_verificated} image_url={image_url}/>)}
 		</ListBox>
 	</MyContainer>
 );

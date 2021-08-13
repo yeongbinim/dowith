@@ -56,6 +56,9 @@ const Button = styled.button`
 	overflow:hidden;
 	z-index: 999;
 	left:0;
+	padding:0;
+	border:none;
+	outline:none;
 	bottom:-1.5rem;
 	&>div:hover{
 		opacity:${props=>props.status === false ? 1 : 0.7};

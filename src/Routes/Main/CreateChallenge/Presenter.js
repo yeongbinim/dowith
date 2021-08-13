@@ -114,17 +114,15 @@ const Numberarea = styled.input`
     color: #c1c1c1;
   }
 `;
-const Div = styled.div`
-  width:50rem;
-  height:30rem;
-`;
+
+
 
 const Presenter = () => {
-  const [img, SetImg] = useState(null);
+  const [img, SetImg] = useState(undefined);
   const [title, SetTitle] = useState("");
   const [body, SetBody] = useState("");
-  const [date1, SetDate1] = useState(null);
-  const [date2, SetDate2] = useState(null);
+  const [date1, SetDate1] = useState(undefined);
+  const [date2, SetDate2] = useState(undefined);
   const [num, SetNum] = useState(0);
 
   const imgHandler = (e) => {
@@ -166,14 +164,7 @@ const Presenter = () => {
     formData.append('start_date', date1);
     formData.append('end_date', date2);
     formData.append('thumbnail_url', img);
-    // let data = {
-    //   title: title,
-    //   start_date: date1,
-    //   end_date:date2,
-    //   description:body,
-    //   fee:num,
-    // };
-    postApi.postCreateChallenge(formData).then((response)=>{alert("챌린지가 개설되었습니다!"); window.location.href = "/";}).catch(()=>{alert("오류")});
+    postApi.postCreateChallenge(formData).then((response)=>{alert("챌린지가 개설되었습니다!"); window.history.back();}).catch(()=>{alert("오류")});
   };
 
 

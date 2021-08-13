@@ -65,7 +65,7 @@ const ChallengeNow = ({
 			<Rail percent={(elapsed_days/total_challenge_period)*100}/>
 			<Ment>
 				<span>오늘은 <u>챌린지 {elapsed_days}일째</u></span>
-				<span>누적상금 <u>{total_accumulated_fine}P</u></span>
+				<span>총 벌금 <u>{total_accumulated_fine}P</u></span>
 			</Ment>
 			{temp===1 || temp===2 ? <ALink to={`/challenge/rank/${id}`}>전체 랭킹 보기</ALink>:<></>}
 		</Section>)

@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const Presenter = ({data_challenge}) => (
 	<Container>
-		{data_challenge.finished.map(challenge=><ImageChallenge key={challenge.id} id={challenge.id} title={challenge.title} thumbnail_url={challenge.thumbnail_url} status={"완료"}/>)}
+		{data_challenge.finished.map(challenge=><ImageChallenge fee={challenge.fee} total_distribute_charge={challenge.total_distribute_charge} key={challenge.id} id={challenge.id} title={challenge.title} thumbnail_url={challenge.thumbnail_url} status={"완료"}/>)}
 	</Container>
 );
 
