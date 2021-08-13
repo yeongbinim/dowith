@@ -6,12 +6,12 @@ const ButtonContainer = styled(Link)`
   background-color: #fff;
   outline-style: none;
   color: #3c68fa;
-  border: 1px solid #3c68fa;
+  border: 1.5px solid #3c68fa;
   border-radius: 28px;
   opacity: 1;
   z-index: 1;
   margin-bottom: 3rem;
-  height: 6rem;
+  height: 5rem;
   width: 80%;
   text-align: center;
   display: block;
@@ -27,7 +27,7 @@ const ButtonContainer = styled(Link)`
 const TextContainer = styled.div`
   background-color: none;
   margin: auto;
-  padding: 1.5rem 3rem;
+  padding: 0rem 3rem;
   font-weight: 400;
   height: 100%;
   align-items: center;
@@ -40,7 +40,7 @@ const LinkButton = ({ contents, url }) => {
       <TextContainer>
         <span
           style={{
-            fontSize: "1.4rem",
+            fontSize: "1.6rem",
             fontWeight: "400",
           }}
         >

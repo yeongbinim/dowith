@@ -160,6 +160,8 @@ const Presenter = () => (
         />
         <br />
         <br />
+        <br />
+        <br />
         <SectionBox>
           <Centerspan style={{ fontWeight: "500", color: "#3c68fa" }}>
             두윗과 함께 목표를 향해 달릴 준비 되셨나요?
