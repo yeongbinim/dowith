@@ -187,7 +187,8 @@ const Presenter = ({
       <ALink to="/challenge">전체보기</ALink>
       <H2>가장 핫한 챌린지<br/><span>두윗에 가입해 가장 먼저하게 되는 챌린지에요!</span></H2>
       <Ul>
-        <li key={data_allchallenge.gatering[0].challenge.id}><Image title={data_allchallenge.gatering[0].challenge.title} thumbnail_url={data_allchallenge.gatering[0].challenge.thumbnail_url} participated_count={data_allchallenge.gatering[0].challenge.participated_count} id={data_allchallenge.gatering[0].challenge.id}/></li>
+        {console.log(data_allchallenge)}
+        {data_allchallenge.ongoing[0]? <li key={data_allchallenge.ongoing[0].id}><Image title={data_allchallenge.ongoing[0].title} thumbnail_url={data_allchallenge.ongoing[0].thumbnail_url} participated_count={data_allchallenge.ongoing[0].participated_count} id={data_allchallenge.ongoing[0].id}/></li> : <></>}
       </Ul>
       <H2>두윗두윗 츄.. 역대 챌린지<br/><span>함께여서 더욱 즐거웠던 두윗 챌린지들을 추억해보세요!</span></H2>
       <Ul>
