@@ -40,6 +40,9 @@ const Button = styled.div`
 
 const Img = styled.img`
   width:100%;
+  display:block;
+  margin:0 auto;
+  max-width:1000px;
 `;
 
 const Presenter = () => (

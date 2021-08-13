@@ -88,9 +88,9 @@ const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user
       url:null,
       clickEvent:null,
     },{
-      status:false,
+      status:true,
       content:`로그인 후에 이용해 주세요`,
-      url:null,
+      url:"/signin",
       clickEvent:null,
     },{
       status:false,
@@ -107,7 +107,11 @@ const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user
       {temp===1 || temp === 2 || temp === 6? (<>
         <Modal isMaster={user.id === data_challenge.captain} isVisible={isVisible} onSetIsVisible={onSetIsVisible} id={imageId} list={data_allverify} />
         <MyverifyContainer onSetIsVisible={onSetIsVisible} setId={setId} data_myverify={data_myverify} image_url={user.image_url}/><AllverifyContainer onSetIsVisible={onSetIsVisible} setId={setId} data_allverify={data_allverify}/>
-      </>):(<></>)}
+      </>):(temp === 4? 
+      <>
+        <Modal isMaster={user.id === data_challenge.captain} isVisible={isVisible} onSetIsVisible={onSetIsVisible} id={imageId} list={data_allverify} />
+        <AllverifyContainer onSetIsVisible={onSetIsVisible} setId={setId} data_allverify={data_allverify}/>
+      </> : <></>)}
       <ChallengeButton {...buttonCondition[temp]}/>
       <div style={{height:'10rem'}}></div>
     </>

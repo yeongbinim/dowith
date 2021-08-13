@@ -67,7 +67,7 @@ const ChallengeNow = ({
 				<span>오늘은 <u>챌린지 {elapsed_days}일째</u></span>
 				<span>총 벌금 <u>{total_accumulated_fine}P</u></span>
 			</Ment>
-			{temp===1 || temp===2 || temp===6 ? <ALink to={`/challenge/rank/${id}`}>전체 랭킹 보기</ALink>:<></>}
+			{temp===1 || temp===2 || temp===6  || temp===4 ? <ALink to={`/challenge/rank/${id}`}>전체 랭킹 보기</ALink>:<></>}
 		</Section>)
 	);
 

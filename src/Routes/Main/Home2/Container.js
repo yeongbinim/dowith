@@ -20,7 +20,7 @@ const Container = ({user}) => {
   useEffect(() => mount(), [user]);
   return (
 	error? `${error}`:
-  <Presenter data_allchallenge={Challenge} loading={loading}/>
+  <Presenter isLogin={user === null} data_allchallenge={Challenge} loading={loading}/>
   );
 }
 export default Container;

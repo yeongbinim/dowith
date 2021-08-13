@@ -52,7 +52,7 @@ const Dummy = styled.div`
 
 
 
-const Presenter = ({loading, data_allchallenge}) => loading ? (<><Helmet><title>Loading | Dowith</title></Helmet><Loader /></>) : ( 
+const Presenter = ({isLogin,loading, data_allchallenge}) => loading ? (<><Helmet><title>Loading | Dowith</title></Helmet><Loader /></>) : ( 
   <>
   <Helmet><title>List | Dowith</title></Helmet>
   <IllustSection />
@@ -63,7 +63,7 @@ const Presenter = ({loading, data_allchallenge}) => loading ? (<><Helmet><title>
       {data_allchallenge.gathering.map(challenge => <li key={challenge.id}><Image title={challenge.title} thumbnail_url={challenge.thumbnail_url} participated_count={challenge.participated_count} id={challenge.id}/></li>)}
       <li><Dummy/></li>
       </Ul>
-      <Banner reverse={true} contents={["원하는 챌린지가 없다면?","두윗에서는 직접 챌린지를 만들 수 있어요!","챌린지장이 되어 두윗러들과 함께 달려보아요!",">> 챌린지 트랙 만들러가기"]}/>
+      <Banner isLogin={isLogin} reverse={true} contents={["원하는 챌린지가 없다면?","두윗에서는 직접 챌린지를 만들 수 있어요!","챌린지장이 되어 두윗러들과 함께 달려보아요!",">> 챌린지 트랙 만들러가기"]}/>
       <br/><br/>
       <H2>진행중인 챌린지<br/><span>아쉽게도 먼저 시작한 챌린지에요~ 구경하고 가세요!</span></H2>
       <Ul>

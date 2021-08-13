@@ -25,7 +25,7 @@ const Video = styled.video`
 	left: 50%;
 	width: 100vw;
 	max-width:450px;
-	max-height:600px;
+	max-height:450px;
 `;
 
 const Logo = styled(Camera1)`

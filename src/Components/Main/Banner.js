@@ -64,9 +64,14 @@ const SvgBlock = styled(Block)`
 //   font-weight: bold;
 // `;
 
-const Banner = ({ reverse, contents }) => {
+const Banner = ({ reverse, contents, isLogin=true }) => {
+  
   return (
-    <BannerContainer to={reverse ? "/createchallenge" : "/introduce"}>
+    <BannerContainer onClick={(e)=>{
+      if(!isLogin){
+        e.preventDefault();
+        alert("로그인이 필요한 서비스입니다");
+      }}} to={isLogin ? (reverse ? "/createchallenge" : "/introduce"):null}>
       <TextContainer reverse={reverse}>
         <Textbox reverse={reverse}>
           <span style={{ fontSize: "1.6rem", fontWeight: "400" }}>
