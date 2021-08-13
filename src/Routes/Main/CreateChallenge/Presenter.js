@@ -181,7 +181,7 @@ const Presenter = () => {
         contents={[
           null,
           "챌린지 트랙 만들기",
-          "두윗러들과 함께 하고 싶은 챌린지 트랙을 직접 만들어보세요!",
+          "함께 하고 싶은 챌린지 트랙을 직접 만들어보세요!",
         ]}
       />
       <Container>
@@ -190,7 +190,7 @@ const Presenter = () => {
           <ImageSelect onChange={imgHandler} />
           <br /><br /><br />
           <H2>챌린지의 이름은 무엇인가요?</H2>
-          <Textarea placeholder="하루에 운동 20분 하기 등 챌린지를 잘 나타내는 이름을 지어주세요!" value={title} onChange={titleHandler} required={true} />
+          <Textarea placeholder="챌린지를 잘 나타내는 이름을 지어주세요!" value={title} onChange={titleHandler} required={true} />
           <br /><br /><br />
           <H2>챌린지를 한 줄로 소개해주세요!</H2>
           <Textarea placeholder="건강한 하루를 위해 매일 매일 운동 20분 하기!" value={body} onChange={bodyHandler} required={false} />
@@ -198,7 +198,6 @@ const Presenter = () => {
           <H2>챌린지의 기간을 설정해주세요</H2>
           <br />
           <DateSection>
-
             <Ul>
               <Li>
                 <span>챌린지 시작 날짜</span>

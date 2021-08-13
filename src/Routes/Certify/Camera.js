@@ -65,8 +65,7 @@ const constraints = {
 	video: {
 		width: 500,
 		height: 500
-	},
-	facingMode: { exact: "environment" }
+	}
 };
 const handleSuccess = (stream, refCamera) => {
 	console.log('getUserMedia() got stream:', stream);
