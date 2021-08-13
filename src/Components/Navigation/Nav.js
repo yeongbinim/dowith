@@ -55,10 +55,10 @@ export default withRouter(({location:{pathname}, onClick, user}) => (
 	<Container onClick={onClick}>
 		<UL>
 			<List current={pathname === "/challenge"}>
-				<SLink to="/challenge">챌린지전체보기</SLink>
+				<SLink to="/challenge">챌린지 전체보기</SLink>
 			</List>
 			<List current={pathname === "/introduce"}>
-				<SLink to="/introduce">소개페이지</SLink>
+				<SLink to="/introduce">두윗 소개 페이지</SLink>
 			</List>
 			{user === undefined || user === null? <>
 				<List current={pathname === "/signin"}>
@@ -70,7 +70,7 @@ export default withRouter(({location:{pathname}, onClick, user}) => (
 			</>:
 				<>
 				<List current={pathname === "/createchallenge"}>
-					<SLink to="/createchallenge">챌린지생성하기</SLink>
+					<SLink to="/createchallenge">챌린지 개설하기</SLink>
 				</List>
 				<List current={pathname === "/mypage"}>
 					<SLink to="/mypage">마이페이지</SLink>

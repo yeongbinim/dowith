@@ -11,8 +11,8 @@ const BackButton = styled.div`
 	&::before{
 		position:absolute;
 		content:"";
-		width:1.8rem;
-		height:1.8rem;
+		width:1.3rem;
+		height:1.3rem;
 		border-left: 0.5rem solid black;
 		transform:rotate(45deg);
 		border-bottom: 0.5rem solid black;

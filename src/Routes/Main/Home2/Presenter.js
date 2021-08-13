@@ -9,9 +9,10 @@ import Loader from "Components/Loader";
 const H2 = styled.h2`
   font-size: ${({ theme: { fontSizes } }) => fontSizes.h2};
   line-height: 1.3em;
-  font-weight: 400;
+  font-weight: 600;
   color: ${(props) => (props.isColor ? props.theme.colors.main : "black")};
   & > span {
+    font-weight: 400;
     font-size: ${({ theme: { fontSizes } }) => fontSizes.normal};
   }
   & > strong {
@@ -35,6 +36,7 @@ const Ul = styled.ul`
   margin: 1rem 0;
   display: flex;
   overflow-x: scroll;
+  padding-bottom:2rem;
   overflow-y: hidden;
   width: 105%;
   & > li:not(:last-child) {
@@ -58,14 +60,14 @@ const Presenter = ({isLogin,loading, data_allchallenge}) => loading ? (<><Helmet
   <IllustSection />
   <Container>
     <Section>
-      <H2>마감임박 챌린지<br/><span>아직 시작하지 않은 챌린지에요! 참여해보세요!</span></H2>
+      <H2>곧 시작되는 챌린지<br/><span>챌린지 시작이 얼마 남지 않았어요! 참여해볼까요?</span></H2>
       <Ul>
       {data_allchallenge.gathering.map(challenge => <li key={challenge.id}><Image title={challenge.title} thumbnail_url={challenge.thumbnail_url} participated_count={challenge.participated_count} id={challenge.id}/></li>)}
       <li><Dummy/></li>
       </Ul>
-      <Banner isLogin={isLogin} reverse={true} contents={["원하는 챌린지가 없다면?","두윗에서는 직접 챌린지를 만들 수 있어요!","챌린지장이 되어 두윗러들과 함께 달려보아요!",">> 챌린지 트랙 만들러가기"]}/>
-      <br/><br/>
-      <H2>진행중인 챌린지<br/><span>아쉽게도 먼저 시작한 챌린지에요~ 구경하고 가세요!</span></H2>
+      <Banner isLogin={isLogin} reverse={true} contents={["원하는 챌린지가 없다면?","직접 챌린지를 만들 수 있어요!","챌린지장이 되어 두윗러들과 함께 달려보아요!",">> 챌린지 트랙 만들러가기"]}/>
+      <br/><br/><br/>
+      <H2>진행중인 챌린지<br/><span>두윗러들이 열심히 달리고 있는 챌린지에요!</span></H2>
       <Ul>
       {data_allchallenge.ongoing.map(challenge => <li key={challenge.id}><Image title={challenge.title} thumbnail_url={challenge.thumbnail_url} participated_count={challenge.participated_count} id={challenge.id}/></li>)}
       <li><Dummy/></li>

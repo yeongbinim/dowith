@@ -23,7 +23,7 @@ const H2 = styled.h2`
 `;
 
 const H4 = styled.h4`
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.h4};
+  font-size: 1.6rem;
   line-height: 1.3em;
   font-weight: 700;
   line-height: 2.8rem;
@@ -217,6 +217,7 @@ const Presenter = () => {
           <br />
           <br />
           <H2>챌린지의 기간을 설정해주세요</H2>
+          <br/>
           <DateSection>
             <Ul>
               <Li>
@@ -268,14 +269,15 @@ const Presenter = () => {
           <br />
           <br />
           <br />
+          <br/>
+          <div style={{lineHeight:"3rem"}}>
           <H2>두윗이 제안하는 챌린지의 벌금이에요!</H2>
           <span
             style={{
               fontWeight: "400",
               fontSize: "1.4rem",
             }}
-          >
-            인증 실패마다 산정되는 벌금은 <br />
+          ><h3 style={{fontSize:"1.6rem"}}>- 인증 실패마다 산정되는 벌금은 </h3>
             <span
               style={{
                 color: "#3c68fa",
@@ -283,15 +285,12 @@ const Presenter = () => {
                 lineHeight: 2,
               }}
             >
-              (챌린지 참여 포인트) / (챌린지 기간)
+              &nbsp;&nbsp;(챌린지 참여 포인트) / (챌린지 기간)
             </span>
             입니다!
           </span>
           <br />
-          <br />
-          <br />
-          <br />
-          <H4>- 왜 챌린지 벌금이 정해져있나요?</H4>
+          <h3 style={{fontSize:"1.6rem"}}>- 왜 챌린지 벌금이 정해져있나요?</h3>
           <span
             style={{
               fontWeight: "400",
@@ -324,8 +323,7 @@ const Presenter = () => {
               fontSize: "1.4rem",
             }}
           >
-            해당 챌린지에 적합하지 않는 사진이 올라오면 인증을 무효처리할 수
-            있어요!
+            해당 챌린지에 적합하지 않는 사진이 올라오면 인증을 무효처리할 수 있어요!
           </span>
           <div style={{ height: "10rem" }}></div>
           <ChallengeButton
@@ -333,7 +331,8 @@ const Presenter = () => {
             status={true}
             type="submit"
             clickEvent={() => {}}
-          />{" "}
+          />
+          </div>
         </FormSection>
       </Container>
     </>

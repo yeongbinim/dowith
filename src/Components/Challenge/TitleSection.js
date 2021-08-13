@@ -54,8 +54,8 @@ const TitleSection = ({
       <H3>챌린지장 : <span>{captain_name}님</span></H3>
       <H3>참여인원 : <span>{participated_count}명</span></H3>
       {challenge_status === "시작 전" ? <H3>생성 일자 : <span>{create_date}</span></H3> : ""}
-      <H3>챌린지장 : <span>{start_date} ~ {end_date} &nbsp;&nbsp;<u>총 {total_challenge_period}일간 진행</u> </span></H3>
-      <H3>참여포인트 : <span>{fee}P</span></H3>
+      <H3>챌린지 기간 : <span>{start_date} ~ {end_date} &nbsp;&nbsp;<u>총 {total_challenge_period}일간 진행</u> </span></H3>
+      <H3>참여 포인트 : <span>{fee}P</span></H3>
     </Section>
 	);
 

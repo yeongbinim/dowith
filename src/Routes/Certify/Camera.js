@@ -10,7 +10,6 @@ const VideoContainer = styled.div`
 	position:absolute;
 	display:flex;
 	flex-direction:column;
-	justify-content:stretch;
 	top:0;
 	left:0;
 	z-index:1059;

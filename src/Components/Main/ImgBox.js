@@ -26,7 +26,7 @@ const Image = styled.div`
   background-position: center center;
   background-size: cover;
   width: 30rem;
-  height: 18rem;
+  height: 19rem;
 `;
 
 const ImgBox = ({thumbnail_url, title="기본 타이틀", participated_count, id}) => {
