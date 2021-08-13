@@ -174,7 +174,7 @@ const Presenter = ({
     </>):
     (<>
     <div style={{width:"100%",display:"flex",justifyContent:"center"}}>
-      <img src={require("assets/Introduce/5.png").default} style={{maxWidth:"500px",width:"100%",borderRadius:"15px"}}/><br/>
+      <img src={require("assets/Introduce/5.png").default} style={{maxWidth:"500px",width:"100%",borderRadius:"15px"}} alt="img"/><br/>
       </div>
       <br/><br/><br/><br/>
       <ArticleBox><div style={{padding:"3rem 3rem 5rem", position:"relative"}}><div>로그인하게 되면 더 많은 서비스를 경험하실 수 있습니다!</div><Link to="/signin" style={{position:"absolute",right:"2rem",bottom:"2rem",color:"#3d69fa"}}>로그인하러 가기</Link></div></ArticleBox><br/><br/><br/><br/>
@@ -187,11 +187,7 @@ const Presenter = ({
       <ALink to="/challenge">전체보기</ALink>
       <H2>가장 핫한 챌린지<br/><span>두윗에 가입해 가장 먼저하게 되는 챌린지에요!</span></H2>
       <Ul>
-        {data_allchallenge.gathering.map(challenge => {
-          if(challenge.id === 1)
-            return <li key={challenge.id}><Image title={challenge.title} thumbnail_url={challenge.thumbnail_url} participated_count={challenge.participated_count} id={challenge.id}/></li>
-          })}
-        <li><Dummy/></li>
+        <li key={data_allchallenge.gatering[0].challenge.id}><Image title={data_allchallenge.gatering[0].challenge.title} thumbnail_url={data_allchallenge.gatering[0].challenge.thumbnail_url} participated_count={data_allchallenge.gatering[0].challenge.participated_count} id={data_allchallenge.gatering[0].challenge.id}/></li>
       </Ul>
       <H2>두윗두윗 츄.. 역대 챌린지<br/><span>함께여서 더욱 즐거웠던 두윗 챌린지들을 추억해보세요!</span></H2>
       <Ul>

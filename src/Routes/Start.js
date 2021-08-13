@@ -23,7 +23,7 @@ const Background = styled.div`
 
 const Presenter = () => {
  
-  <>
+  return <>
     <Background>
       <img src={logo} alt="loading logo" />
 	</Background>
