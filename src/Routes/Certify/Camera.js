@@ -20,11 +20,12 @@ const VideoContainer = styled.div`
 
 const Video = styled.video`
 	position:relative;
-	transform: translate(-50%,0) rotateY(180deg);
+	transform: translate(-50%,0);
 	top: 0;
 	left: 50%;
 	width: 100vw;
 	max-width:450px;
+	max-height:600px;
 `;
 
 const Logo = styled(Camera1)`
@@ -83,7 +84,8 @@ const init = async (refCamera) => {
 
 const capture = (refCanvas,refCamera,mediaStream, id)=>{
 	const canvas = refCanvas.current;
-	canvas.width = "1280";
+	console.log(refCanvas.offsetWidth);
+	canvas.width = window.innerWidth > 500 ? "1280" : "420";
     canvas.height = "720";
 	canvas.getContext('2d').drawImage(refCamera.current,0,0);
 	let dataUri = canvas.toDataURL('image/png', 0.92);
@@ -102,7 +104,7 @@ const capture = (refCanvas,refCamera,mediaStream, id)=>{
 	const formData = new FormData();
 	formData.append('article', "hihi");
 	formData.append('image_url', capBlob);
-	postApi.postSubmitPost(id, formData).then(() => { alert("오늘의 인증샷 제출완료!"); window.history.back(); }).catch((error) => { alert(error); window.history.back(); });
+	postApi.postSubmitPost(id, formData).then(() => { alert("오늘의 인증샷 제출완료!"); window.history.go(-1);}).catch((error) => { alert(error); window.history.go(-1); });
 }
 
 // const capture = (mediaStream, id) => {

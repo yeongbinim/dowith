@@ -74,7 +74,7 @@ const Presenter = ({ loading }) =>{
     const formData = new FormData();
     formData.append('nickname', nickname);
     formData.append('image_url', img);
-    postApi.putEditProfile(formData).then((response)=>{alert("프로필이 변경되었습니다."); window.history.back();}).catch(()=>{alert("오류")});
+    postApi.putEditProfile(formData).then((response)=>{alert("프로필이 변경되었습니다."); window.history.go(-1);}).catch(()=>{alert("오류")});
   };
 
   return (loading ? (

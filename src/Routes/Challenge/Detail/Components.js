@@ -8,6 +8,8 @@ import ModalImage from "Components/Challenge/ModalImage";
 
 const TitleContainer=styled.section`
   display:flex;
+  max-width:100vw;
+  overflow-x: hidden;
   flex-direction: column;
   @media only screen and (min-width: 1000px) {
     flex-direction: row;
@@ -57,6 +59,8 @@ const H4 = styled.h4`
 const MyContainer = styled.div`
 	font-size: ${props => props.theme.fontSizes.normal};
   	padding:4rem 2vw;
+	max-width:100vw;
+  	overflow-x: hidden;
 `;
 const PhotoContainer = styled.div`
 	overflow-x: scroll;

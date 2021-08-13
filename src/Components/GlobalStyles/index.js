@@ -14,6 +14,7 @@ const globalStyles = createGlobalStyle`
 	}
 	body{
 		overflow-x:hidden;
+		max-width:100vw;
 		font-family: Pretendard;
 		font-style: normal;
 	}
