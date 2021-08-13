@@ -23,42 +23,81 @@ import Scroll from "./Scroll";
 import EditProfile from "Routes/Mypage/EditProfile";
 import Start from "Routes/Start";
 
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { getApi } from "api";
 
 const RouterC = () => {
-	// const user=null;
- 	const [user, setUser] = useState(null);
-  	const mount = async() => {
-		try {
-			const {data}= await getApi.getUser();
-			setUser(data);
-		} catch {
-			console.log("Not login");
-		};
-	}
-	useEffect(() => mount(), []);
-	return(
-	<Router>
-		<Scroll/>
-		<Back/>
-		<Switch>
-			<Route path="/" exact={true} render={()=><Home user={user}/>} />
-			<Route path="/start" exact={true} render={() => <Start />} />
-			<Route path="/certify/:id" render={({match:{params:{id}}})=><Certify user={user} id={id} />} />
-			<Route path="/mypage" exact={true} render={()=><Mypage user={user}/>} />
-			<Route path="/introduce" render={()=><Introduce/>} />
-			<Route path="/createchallenge" render={()=><CreateChallenge user={user}/>} />
-			<Route path="/challenge" exact={true} render={()=><Home2 isLogin={user!==null}/>}/>
-			<Route path="/mypage/edit" exact={true} render={()=><EditProfile/>}/>
-			<Route path="/signin" render={()=><Kakao user={user}/>} />
-			{/* <Route path="/signup" render={()=><Signup user={user}/>} />
+  // const user=null;
+  const [user, setUser] = useState(null);
+  const mount = async () => {
+    try {
+      const { data } = await getApi.getUser();
+      setUser(data);
+    } catch {
+      console.log("Not login");
+    }
+  };
+  useEffect(() => mount(), []);
+  return (
+    <Router>
+      <Scroll />
+      <Back />
+      <Switch>
+        <Route path="/" exact={true} render={() => <Home user={user} />} />
+        <Route path="/easteregg" exact={true} render={() => <Start />} />
+        <Route
+          path="/certify/:id"
+          render={({
+            match: {
+              params: { id },
+            },
+          }) => <Certify user={user} id={id} />}
+        />
+        <Route
+          path="/mypage"
+          exact={true}
+          render={() => <Mypage user={user} />}
+        />
+        <Route path="/introduce" render={() => <Introduce />} />
+        <Route
+          path="/createchallenge"
+          render={() => <CreateChallenge user={user} />}
+        />
+        <Route
+          path="/challenge"
+          exact={true}
+          render={() => <Home2 isLogin={user !== null} />}
+        />
+        <Route
+          path="/mypage/edit"
+          exact={true}
+          render={() => <EditProfile />}
+        />
+        <Route path="/signin" render={() => <Kakao user={user} />} />
+        {/* <Route path="/signup" render={()=><Signup user={user}/>} />
 			<Route path="/kakao" render={()=><Kakao user={user}/>} /> */}
-			<Route path="/join1" render={()=><Join1 user={user}/>} />
-			<Route path="/join2" render={()=><Join2 user={user}/>} />
-			<Route path="/challenge/:id" exact={true} render={({match:{params:{id}}})=><Detail user={user} id={id}/>} />
-			<Route path="/challenge/rank/:id" render={({match:{params:{id}}})=><DetailRank user={user} id={id}/>} />
-			<Redirect from="*" to="/"/>
-		</Switch>
-	</Router>)};
+        <Route path="/join1" render={() => <Join1 user={user} />} />
+        <Route path="/join2" render={() => <Join2 user={user} />} />
+        <Route
+          path="/challenge/:id"
+          exact={true}
+          render={({
+            match: {
+              params: { id },
+            },
+          }) => <Detail user={user} id={id} />}
+        />
+        <Route
+          path="/challenge/rank/:id"
+          render={({
+            match: {
+              params: { id },
+            },
+          }) => <DetailRank user={user} id={id} />}
+        />
+        <Redirect from="*" to="/" />
+      </Switch>
+    </Router>
+  );
+};
 export default RouterC;
