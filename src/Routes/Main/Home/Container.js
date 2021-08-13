@@ -1,10 +1,10 @@
 import React from "react";
 import {useState, useEffect} from "react";
-import { getApi } from "api";
+import { getApi,signIn } from "api";
 import Presenter from "./Presenter";
 import Header from "Components/Navigation/Header";
-import Hey from "Components/Hey";
 
+let temp = 0;
 const Container = ({user}) => {
   const [Challenge, setChallenge] = useState(null);
   const [ChallengeToday, setChallengeToday] = useState(null);
@@ -31,9 +31,11 @@ const Container = ({user}) => {
     }
   };
   useEffect(()=>mount(), [user]);
+  let code = new URL(window.location.href).searchParams.get("code");
+  if(code && temp == 0){temp=1; signIn.onLogin();}
   return (
 	error? `${error}`:
-    <><Header user={user}/><Presenter data_todaychallenge={ChallengeToday} data_allchallenge={Challenge} loading={loading} user={user}/><Hey/></>
+    <><Header user={user}/><Presenter data_todaychallenge={ChallengeToday} data_allchallenge={Challenge} loading={loading} user={user}/></>
   );
 }
 export default Container;

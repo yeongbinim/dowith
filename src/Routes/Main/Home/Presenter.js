@@ -182,7 +182,9 @@ const Presenter = ({
       <Banner contents={["함께 달릴 준비 되셨나요?","두윗과 함께 달려봐요!","달리기 전, 준비 운동 하러가기",">> 클릭시 두위 소개 페이지로 이동합니다."]}/>
     </Section1>
     </>):
-    (<></>)}
+    (<>
+      <ArticleBox><div style={{padding:"3rem 3rem 5rem", position:"relative"}}><div>로그인하게 되면 더 많은 서비스를 경험하실 수 있습니다!</div><Link to="/signin" style={{position:"absolute",right:"2rem",bottom:"2rem",color:"#3d69fa"}}>로그인하러 가기</Link></div></ArticleBox><br/><br/><br/><br/><br/>
+    </>)}
     {/* 로그인 안한사람 */}
     
     <Section2>

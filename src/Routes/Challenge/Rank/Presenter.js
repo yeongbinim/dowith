@@ -44,7 +44,7 @@ loading ?
           <div>
             {dataRank.my.verification_count}/{dataRank.elapse_days}
           </div>
-        </Div> : <></>}
+        </Div> : <>아직 까지 인증된 기록이 없습니다.</>}
         {dataRank.participations.map(participation=>(<Div key={participation.user_id}>
 
           <div>

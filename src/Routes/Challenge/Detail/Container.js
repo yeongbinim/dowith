@@ -34,7 +34,6 @@ const Container = ({id,user}) => {
   const mount = async() => {
     try {
 		const {data} = await getApi.getDetail(id);
-    console.log(data);
 		setdetail(data);
     } catch {
       seterror("Can't find Challenge.");

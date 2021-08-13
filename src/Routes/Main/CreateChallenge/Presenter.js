@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import ChallengeButton from "Components/ChallengeButton";
@@ -6,6 +6,7 @@ import IllustSection from "Components/Main/IllustSection";
 import Textarea from "Components/Textarea";
 import ImageSelect from "Components/ImageSelect";
 import { ReactComponent as Image } from "assets/icon-example.svg";
+import { postApi } from "api";
 
 const H2 = styled.h2`
   font-size: ${({ theme: { fontSizes } }) => fontSizes.h3};
@@ -33,7 +34,7 @@ const Container = styled.div`
   padding: 2rem;
 `;
 
-const Section = styled.section`
+const FormSection = styled.form`
   position: relative;
   margin-top: 2rem;
   z-index: 1;
@@ -52,8 +53,13 @@ const Ul = styled.ul`
 
 const Li = styled.li`
   margin-bottom: 1rem;
-  margin-left: 4rem;
-  list-style: square;
+  width:100%;
+  &:first-child{
+    margin-right: 4rem;
+  }
+  &>span{
+    padding:1rem;
+  }
 `;
 
 const DateSection = styled.div`
@@ -65,16 +71,113 @@ const InputNum = styled.input`
   border: none;
   border-bottom: 0.3rem solid #3c68fa;
   outline: none;
+  &:disabled{
+    background: none;
+  }
 `;
 
 const DateInput = styled.input`
   margin-top: 1rem;
+  position:relative;
+  width:100%;
   padding: 2rem;
   border: 1px solid #c1c1cc;
   border-radius: 1rem;
+  font-size:${props=>props.theme.fontSizes.normal};
+  &::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+  }
 `;
 
-const Presenter = () => (
+const Numberarea = styled.input`
+  border: 1px solid #cfcfcf;
+  outline-style: none;
+  border-radius: 1rem;
+  opacity: 1;
+  width: 100%;
+  max-width: 50rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size:${props=>props.theme.fontSizes.normal};
+  ::placeholder {
+    color: #c1c1c1;
+  }
+`;
+const Div = styled.div`
+  width:50rem;
+  height:30rem;
+`;
+
+const Presenter = () => {
+  const [img, SetImg] = useState(null);
+  const [title, SetTitle] = useState("");
+  const [body, SetBody] = useState("");
+  const [date1, SetDate1] = useState(null);
+  const [date2, SetDate2] = useState(null);
+  const [num, SetNum] = useState(0);
+
+  const imgHandler = (e) => {
+    e.preventDefault();
+    console.log(e.target.files[0]);
+    SetImg(e.target.files[0]);
+  };
+  const titleHandler = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    SetTitle(e.target.value);
+  };
+  const bodyHandler = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    SetBody(e.target.value);
+  };
+  const date1Handler = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    SetDate1(e.target.value);
+  };
+  const date2Handler = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    SetDate2(e.target.value);
+  };
+  const numHandler = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    SetNum(e.target.value);
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('description', body);
+    formData.append('fee', num);
+    formData.append('start_date', date1);
+    formData.append('end_date', date2);
+    formData.append('thumbnail_url', img);
+    // let data = {
+    //   title: title,
+    //   start_date: date1,
+    //   end_date:date2,
+    //   description:body,
+    //   fee:num,
+    // };
+    postApi.postCreateChallenge(formData).then((response)=>{alert("챌린지가 개설되었습니다!"); window.location.href = "/";}).catch(()=>{alert("오류")});
+  };
+
+
+  return (
   <>
     <Helmet>
       <title>Create | Dowith</title>
@@ -89,44 +192,39 @@ const Presenter = () => (
       ]}
     />
     <Container>
-      <Section>
+      <FormSection onSubmit={submitHandler}>
         <H2>챌린지 대표 이미지 설정하기</H2>
-        <ImageSelect />
-        <br />
-        <br />
+        <ImageSelect onChange={imgHandler}/>
+        <br /><br /><br />
         <H2>챌린지의 이름은 무엇인가요?</H2>
-        <Textarea placeholder="하루에 운동 20분 하기 등 챌린지를 잘 나타내는 이름을 지어주세요!" />
-        <br />
-        <br />
+        <Textarea placeholder = "하루에 운동 20분 하기 등 챌린지를 잘 나타내는 이름을 지어주세요!" value={title} onChange={titleHandler} required={true}/>
+        <br /><br /><br />
         <H2>챌린지를 한 줄로 소개해주세요!</H2>
-        <Textarea placeholder="건강한 하루를 위해 매일 매일 운동 20분 하기!" />
-        <br />
-        <br />
+        <Textarea placeholder = "건강한 하루를 위해 매일 매일 운동 20분 하기!" value={body} onChange={bodyHandler} required={false}/>
+        <br /><br /><br />
         <H2>챌린지의 기간을 설정해주세요</H2>
+        <br />
         <DateSection>
+          
           <Ul>
             <Li>
-              챌린지 시작 날짜
+              <span>챌린지 시작 날짜</span>
               <br />
-              <DateInput type="date" />
+              <DateInput type="date" value={date1} onChange={date1Handler} required/>
             </Li>
             <Li>
-              챌린지 끝 날짜
+              <span>챌린지 끝 날짜</span>
               <br />
-              <DateInput type="date" />
+              <DateInput type="date" value={date2} onChange={date2Handler} required/>
             </Li>
           </Ul>
         </DateSection>
         <H2>챌린지를 참여하기 위한 포인트를 설정해주세요</H2>
-        <Textarea placeholder="포인트를 적당하게 설정하면 더 많은 두윗러들과 함께 달릴 수 있어요!" />
-        <br />
-        <br />
-        <br />
+        <Numberarea type="number" min={100} max={5000} placeholder="포인트를 적당하게 설정하면 더 많은 두윗러들과 함께 달릴 수 있어요!" value={num} onChange={numHandler} required/>
+        <br /><br /><br />
         <H2>두윗이 제안하는 챌린지의 벌금이에요!</H2>
-        <br />
-        <InputNum />
-        <br />
-        <br />
+        <br /><InputNum disabled={true}/>
+        <br /><br /><br /><br />
         <H4>- 왜 챌린지 벌금이 정해져있나요?</H4>
         <span>
           챌린지 기간과 참여 포인트를 설정하면 그에 맞는 적절한 벌금 설정을
@@ -134,30 +232,27 @@ const Presenter = () => (
           과도한 벌금은 사기를 떨어뜨리고, 너무 적은 벌금은 동기 부여를 약하게
           만들 수 있어요!
         </span>
-        <br />
-        <br />
-        <br />
+        <br/>
+        <br/>
+        <br/>
         <H2>챌린지 장은 어떤 일을 하나요?</H2>
         <span>ex) 플라스틱 컵 대신 텀블러 사용하기 챌린지</span>
         <Image width="44rem" height="20rem" z-index="-1" />
         <H4>- 챌린지에 올라오는 인증사진 살펴보기</H4>
         <span>
-          해당 챌린지에 적합하지 않는 사진이 올라오면 인증을 무효처리할 수
-          있어요!
+          해당 챌린지에 적합하지 않는 사진이 올라오면 인증을 무효처리할 수 있어요!
         </span>
-        <br />
-        <br />
+        <div style={{height:'10rem'}}></div>
         <ChallengeButton
           content="챌린지 개설하기"
           status={true}
-          clickEvent={() => {
-            alert();
-          }}
+          type="submit"
+          clickEvent={() => {}}
         />{" "}
-      </Section>
+      </FormSection>
     </Container>
   </>
-);
+)};
 
 // Presenter.propTypes = {
 // };

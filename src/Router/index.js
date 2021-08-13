@@ -8,7 +8,7 @@ import {
 import Home from "Routes/Main/Home";
 import Home2 from "Routes/Main/Home2";
 import Introduce from "Routes/Main/Introduce";
-import Certify from "Routes/Certify";
+import Certify from "Routes/Certify/Camera";
 import Signin from "Routes/Sign/Signin";
 import Signup from "Routes/Sign/Signup";
 import Join1 from "Routes/Sign/Join1";
@@ -47,9 +47,9 @@ const RouterC = () => {
 			<Route path="/introduce" render={()=><Introduce/>} />
 			<Route path="/createchallenge" render={()=><CreateChallenge user={user}/>} />
 			<Route path="/challenge" exact={true} render={()=><Home2/>}/>
-			<Route path="/signin" render={()=><Signin user={user}/>} />
-			<Route path="/signup" render={()=><Signup user={user}/>} />
-			<Route path="/kakao" render={()=><Kakao user={user}/>} />
+			<Route path="/signin" render={()=><Kakao user={user}/>} />
+			{/* <Route path="/signup" render={()=><Signup user={user}/>} />
+			<Route path="/kakao" render={()=><Kakao user={user}/>} /> */}
 			<Route path="/join1" render={()=><Join1 user={user}/>} />
 			<Route path="/join2" render={()=><Join2 user={user}/>} />
 			<Route path="/challenge/:id" exact={true} render={({match:{params:{id}}})=><Detail user={user} id={id}/>} />

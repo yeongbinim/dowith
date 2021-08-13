@@ -5,7 +5,7 @@ import axios from "axios";
 axios.defaults.baseURL = "http://3.36.83.46:8000";
 // const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46ZG93aXRoIiwic3ViIjoiMSIsImlhdCI6MTYyODcwNTA5NiwiZXhwIjoxNjI4NzA4Njk2LCJhdWQiOlsidXJuOmRvd2l0aDp1c2VyIl0sInR5cGUiOiJhY2Nlc3MiLCJwcm92aWRlciI6ImFkbWluIiwibmlja25hbWUiOiIxIn0.mG4R_dVzSeKhihnux5QrpRV2l0yuUAfIOVHaO31sUkY'
 const token = localStorage.getItem('access');
-axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+token ? axios.defaults.headers.common['Authorization'] = `Bearer ${token}` : axios.defaults.headers.common['Authorization'] = `Bearer`;
 
 // const onLoginSuccess = response => {
 // 	const { access, refresh } = response.data;
@@ -13,7 +13,7 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 // 	localStorage.setItem("refresh", refresh);
 // 	axios.defaults.headers.common['Authorization'] = `Bearer ${access}`;
 // 	console.log(response);
-
+axios.defaults.headers.common['Content-Type'] = 'application/json;charset=UTF-8';
 // 	// accessToken 만료하기 1분 전에 로그인 연장
 // 	setTimeout(()=>{signIn.onSilentRefresh(response)}, JWT_EXPIRY_TIME - 60000);
 // }
@@ -32,6 +32,7 @@ export const signIn = {
 			provider:"kakao",
 			code:code
 		};
+		localStorage.removeItem('refresh');
 		axios.post('/account/login', data).then(response => {
 			const { access, refresh } = response.data;
 			axios.defaults.headers.common['Authorization'] = `Bearer ${access}`;
@@ -43,10 +44,15 @@ export const signIn = {
 			console.log(error);
 		});
 	},
-	logout : () => {
+	logout : async () => {
 		const refresh = localStorage.getItem('refresh');
-
-		axios.post("account/logout",{refreshToken:refresh}).catch(error=>{alert(error)});
+		try {
+			await axios.post("account/logout",{refreshToken:refresh});
+			localStorage.removeItem('refresh');
+			localStorage.removeItem('access');
+		}catch{
+			alert("에러");
+		}
 	},
 }
 
@@ -76,7 +82,9 @@ export const postApi ={
 	// 방장이 인증해주기
 	postVerification : (post_id) => axios.post(`/verification/${post_id}`),
 	// 챌린지 만들기
-	postCreateChallenge : (data) => axios.post(`/challenge`,data),
+	postCreateChallenge : (data) => axios.post(`/challenge`,data, {
+		headers: { "Content-Type": `application/json`}
+	}),
 	// 챌린지 함께하기
 	postJoinChallenge : (challenge_id) => axios.post(`/challenge/${challenge_id}`),
 	// 챌린지 인증샷 보내기

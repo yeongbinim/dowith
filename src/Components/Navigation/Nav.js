@@ -42,10 +42,9 @@ const CLink = styled.span`
 
 const clickLogout = async() =>{
 	try{
-		const {data} = await signIn.logout();
-		console.log(data);
+		await signIn.logout();
 	  }catch{
-		alert("에러");
+		console.log("error");
 	  }
 	  finally{
 		window.location.reload();
@@ -65,9 +64,9 @@ export default withRouter(({location:{pathname}, onClick, user}) => (
 				<List current={pathname === "/signin"}>
 					<SLink to="/signin">로그인</SLink>
 				</List>
-				<List current={pathname === "/kakao"}>
+				{/* <List current={pathname === "/kakao"}>
 					<SLink to="/kakao">카카오</SLink>
-				</List>
+				</List> */}
 			</>:
 				<>
 				<List current={pathname === "/createchallenge"}>

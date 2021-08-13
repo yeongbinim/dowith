@@ -93,7 +93,7 @@ export const MyverifyContainer = ({data_myverify:{
 		verification_failed_count,
 		total_challenge_ratio,
 		verifications,
-	},image_url
+	},image_url,setId,onSetIsVisible
 }) => (
 	<MyContainer>
 		<H3>챌린지 인증 보드</H3>
@@ -103,19 +103,19 @@ export const MyverifyContainer = ({data_myverify:{
 		<br/>
 		<PhotoContainer>
 			<PhotoBox>
-				{verifications.map(({created_at,file_url,article,is_verificated})=><ModalImage created_at={created_at} article={article} is_verificated={is_verificated} file_url={file_url}/>)}
+				{verifications.map(({id, created_at,file_url,article,is_verificated})=><ModalImage id={id} setId={setId} onSetIsVisible={onSetIsVisible} key={id} created_at={created_at} article={article} is_verificated={is_verificated} file_url={file_url}/>)}
 				<Dummy/>
 			</PhotoBox>
 		</PhotoContainer>
 	</MyContainer>
 );
 
-export const AllverifyContainer = ({data_allverify}) => (
+export const AllverifyContainer = ({data_allverify,setId,onSetIsVisible}) => (
 	<MyContainer>
 		<H4>인증샷 전체보기</H4>
 		<br/>
 		<ListBox>
-			{data_allverify.map(({id, created_at,file_url,article,is_verificated})=><ModalImage key={id} created_at={created_at} article={article} is_verificated={is_verificated} file_url={file_url}/>)}
+			{data_allverify.map(({id, created_at,file_url,article,is_verificated})=><ModalImage id={id} setId={setId} onSetIsVisible={onSetIsVisible} key={id} created_at={created_at} article={article} is_verificated={is_verificated} file_url={file_url}/>)}
 		</ListBox>
 	</MyContainer>
 );

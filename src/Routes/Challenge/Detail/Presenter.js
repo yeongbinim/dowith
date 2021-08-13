@@ -1,9 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 import Helmet from "react-helmet";
 import {ChallengeContainer, MyverifyContainer, AllverifyContainer} from "./Components";
 import ChallengeButton from "Components/ChallengeButton";
 import Loader from "Components/Loader";
 import { postApi } from "api";
+import BodyBlackout from './Modal/BodyBlackout';
+import Modal from './Modal/Modal';
 
 // temp 값
 // 0 : 내 챌린지o [시작전]
@@ -24,7 +26,6 @@ const setTemp = (status, isLogin, isMy) =>{
         temp = 2;
       }
     }else{
-      console.log(status);
       status === "시작 전" ? temp = 3 : temp = 4;
     }
   }
@@ -47,6 +48,11 @@ const postSubmit = async(id) =>{
 }
 
 const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user, id}) =>{
+  const [ isVisible , setIsVisible ] = useState(false);
+  const [ imageId , setId ] = useState(null);
+  const onSetIsVisible = (active) => { 
+    setIsVisible(active);
+  }
   if (loading){
     return(<><Helmet><title>Loading | Dowith</title></Helmet><Loader /></>);
   }else{
@@ -86,8 +92,12 @@ const Presenter = ({data_challenge, data_myverify, data_allverify, loading, user
   return (
     <>
       <Helmet><title>Challenge | Dowith</title></Helmet>
+      <BodyBlackout isVisible={isVisible} onSetIsVisible={onSetIsVisible} />
       <ChallengeContainer data_challenge={data_challenge} temp={temp}/>
-      {temp===1 || temp === 2? (<><MyverifyContainer data_myverify={data_myverify} image_url={user.image_url}/><AllverifyContainer data_allverify={data_allverify}/></>):(<></>)}
+      {temp===1 || temp === 2? (<>
+        <Modal isMaster={user.id === data_challenge.captain} isVisible={isVisible} onSetIsVisible={onSetIsVisible} id={imageId} list={data_allverify} />
+        <MyverifyContainer onSetIsVisible={onSetIsVisible} setId={setId} data_myverify={data_myverify} image_url={user.image_url}/><AllverifyContainer onSetIsVisible={onSetIsVisible} setId={setId} data_allverify={data_allverify}/>
+      </>):(<></>)}
       <ChallengeButton {...buttonCondition[temp]}/>
       <div style={{height:'10rem'}}></div>
     </>

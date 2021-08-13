@@ -48,8 +48,8 @@ const Check = styled(CheckSvg)`
 	opacity:0.5;
 `;
 
-const ModalImage = ({file_url, article, created_at="2021-02-03", is_verificated=true}) => (
-	<Container onClick={()=>{alert();}}>
+const ModalImage = ({id,file_url, setId,onSetIsVisible, created_at="2021-02-03", is_verificated=true}) => (
+	<Container onClick={()=>{setId(id);onSetIsVisible(true)}}>
 		<span>{created_at.substring(0,10)}</span>
 		{is_verificated?<Check/>:<></>}
 		<Img alt="img" src={file_url!=="" && file_url!==null && file_url!== undefined? `${file_url}`: require("assets/default-challenge.jpg").default}/>
