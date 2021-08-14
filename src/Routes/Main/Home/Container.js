@@ -2,7 +2,6 @@ import React from "react";
 import {useState, useEffect} from "react";
 import { getApi,signIn } from "api";
 import Presenter from "./Presenter";
-import Header from "Components/Navigation/Header";
 
 let temp = 0;
 const Container = ({user}) => {
@@ -35,7 +34,7 @@ const Container = ({user}) => {
   if(code && temp === 0){temp=1; signIn.onLogin();}
   return (
 	error? `${error}`:
-    <><Header user={user}/><Presenter data_todaychallenge={ChallengeToday} data_allchallenge={Challenge} loading={loading} user={user}/></>
+    <><Presenter data_todaychallenge={ChallengeToday} data_allchallenge={Challenge} loading={loading} user={user}/></>
   );
 }
 export default Container;

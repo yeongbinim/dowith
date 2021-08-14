@@ -8,6 +8,7 @@ import ProfileCircle from "Components/ProfileCircle";
 import Helmet from "react-helmet";
 import { fadeIn } from "onLoad";
 import Loader from "Components/Loader";
+import Header from "Components/Navigation/Header";
 
 const H2 = styled.h2`
   position:relative;
@@ -39,6 +40,7 @@ const H5 = styled.h5`
 
 const Container = styled.div`
   padding: 2rem;
+  position:relative;
 `;
 
 const Section1 = styled.section`
@@ -145,6 +147,7 @@ const Presenter = ({
   <>
   <Helmet><title>Home | Dowith</title></Helmet>
   <Container>
+  <Header user={user}/>
     {/* 로그인 한사람 */}
     {data_todaychallenge? (<>
     <H2>

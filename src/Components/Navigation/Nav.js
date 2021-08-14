@@ -15,7 +15,10 @@ const UL = styled.ul`
 	&>li:last-child{
 		position:absolute;
 		width:100%;
-		bottom:1rem;
+		top:85vh;
+	}
+	li:hover{
+		color:${props=> props.theme.colors.main};
 	}
 `;
 
