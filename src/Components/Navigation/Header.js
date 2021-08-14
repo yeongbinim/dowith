@@ -27,15 +27,7 @@ class Header extends React.Component {
 				sidebar={<Nav user={this.props.user} onClick={()=>this.onSetSidebarOpen(false)}/>}
 				open={this.state.sidebarOpen}
 				onSetOpen={this.onSetSidebarOpen}
-				styles={{ sidebar: { background: "white",height:"100%",zIndex:"3"},root:{
-          position: "fixed",
-          top: "0",
-          overflow: "hidden",
-          left: "0",
-          width: "100vw",
-          height: "100vh",
-          zIndex: "2",
-        },overlay: {zIndex: "2" }}}
+				styles={{ sidebar: { background: "white",height:"100%", zIndex:"3"},root:{top:"-6rem"},overlay: {zIndex: "2" }}}
 			><MenuButton onClick={()=>this.onSetSidebarOpen(true)}/></Sidebar>
 	  </>
     );
